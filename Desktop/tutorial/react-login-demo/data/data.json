@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "김코딩",
+      "userId": "kimcoding",
+      "password": "12345678",
+      "email": "kim@naver.com",
+      "birthday": "951129",
+      "todo": [
+        {
+          "title": "첫번째",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "name": "한승진",
+      "userId": "dk2216",
+      "password": "hsj123456",
+      "email": "hsj2216@naver.com",
+      "birthday": "951129",
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ]
+}
