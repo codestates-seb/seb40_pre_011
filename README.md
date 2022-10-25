@@ -7,11 +7,7 @@ StackOverFlow 사이트를 클론
 
 ### 사용자 요구사항 정의서
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![사용자 요구사항 정의서](https://user-images.githubusercontent.com/89185550/197688362-438101bb-6d79-49cb-b59d-7e9a81a5dd2f.PNG)
 
 ### `npm test`
 
