@@ -5,7 +5,7 @@ StackOverFlow 사이트를 클론
 팀장 : 한승진 \
 팀원 : 고하나, 신경호, 김윤구, 한상현(BE팀장), 조유종
 
-### 사용자 요구사할 정의서
+### 사용자 요구사항 정의서
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
