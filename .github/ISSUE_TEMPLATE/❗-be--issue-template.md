@@ -2,8 +2,8 @@
 name: "❗[BE] Issue Template"
 about: 백엔드 이슈 템플릿
 title: "❗[BE][Stack][Issue를 적어주세요]"
-labels: "❗Issue"
-assignees: ''
+labels: "\U0001F92CBugFix, ❗Issue"
+assignees: DT-KUKU
 
 ---
 
