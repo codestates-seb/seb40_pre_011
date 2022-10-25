@@ -1,6 +1,8 @@
 # SEB40_PRE_011 StackOverFlow Clone
 StackOverFlow 사이트를 클론
 
+## 기술스택
+
 ## 팀원소개
 팀장 : 한승진 \
 팀원 : 고하나, 신경호, 김윤구, 한상현(BE팀장), 조유종
