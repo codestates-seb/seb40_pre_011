@@ -23,6 +23,11 @@ StackOverFlow 사이트를 클론
 <br>
 <br>
 
+### DB
+![K-054](https://user-images.githubusercontent.com/89185550/197941555-316a2d1b-a6fb-417d-b881-1d22ebba4550.jpg)
+<br>
+<br>
+
 ### 팀원규칙(Git허브 사용시)
 
 |이슈|내용|
