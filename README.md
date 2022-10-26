@@ -18,6 +18,11 @@ StackOverFlow 사이트를 클론
 <br>
 <br>
 
+### Figma
+![StackOverFlowFigma](https://user-images.githubusercontent.com/89185550/197939885-d927827e-b320-4fea-a53a-f2a6592a6124.PNG)
+<br>
+<br>
+
 ### 팀원규칙(Git허브 사용시)
 
 |이슈|내용|
