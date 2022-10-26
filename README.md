@@ -1,5 +1,5 @@
 # 🎃SEB40_PRE_011 StackOverFlow Clone🎃
-StackOverFlow 사이트를 클론!!!
+StackOverFlow 사이트를 클론!!!!
 <br>
 <br>
 
@@ -7,7 +7,7 @@ StackOverFlow 사이트를 클론!!!
 <br>
 
 ## 팀원소개
-팀명 : 🎃싱글톤벙글톤\
+팀명 : 🎃싱글톤벙글톤!!!\
 팀장 : 한승진 \
 팀원 : 고하나, 신경호, 김윤구, 한상현(BE팀장), 조유종
 <br>
