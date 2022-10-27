@@ -1,11 +1,14 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-<<<<<<< HEAD
-  return <div className="App">dass</div>;
-=======
-  return <div className="App">123</div>;
->>>>>>> e0330e183d7f1063cb732a21d3de559d98357fe7
+  return <Routes>
+    <Route path="/" />
+    <Route path="/login" />
+    <Route path="/logout" />
+    <Route path="/join" />
+    <Route path="/questionBoard" />
+    <Route path="/questionBoard/:id" />
+  </Routes>
 }
 
 export default App;
