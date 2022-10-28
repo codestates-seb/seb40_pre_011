@@ -1,11 +1,11 @@
-// import Header from '../components/Header';
-import AsideLeft from '../components/AsideLeft';
+import AsideRight from '../components/AsideRight/AsideRight';
+import Header from '../components/Header/Header';
 
 export default function Mainpage() {
   return (
     <>
-      {/* <Header /> */}
-      <AsideLeft />
+      <Header />
+      <AsideRight />
     </>
   );
 }
