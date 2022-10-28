@@ -1,5 +1,11 @@
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import AsideLeft from '../components/AsideLeft';
 
 export default function Mainpage() {
-  return <Header />;
+  return (
+    <>
+      {/* <Header /> */}
+      <AsideLeft />
+    </>
+  );
 }
