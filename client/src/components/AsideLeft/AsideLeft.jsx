@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as Earth } from '../images/ques_earth.svg';
-import { ReactComponent as Ad } from '../images/ad.svg';
+import { ReactComponent as Earth } from '../../images/ques_earth.svg';
+import { ReactComponent as Ad } from '../../images/ad.svg';
 
 const Container = styled.nav`
   display: flex;
@@ -12,6 +12,12 @@ const Container = styled.nav`
   height: 100vh;
   font-size: var(--font-13);
   color: var(--black-600);
+  position: sticky;
+  top: 0px;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
@@ -19,6 +25,9 @@ const Side = styled.div`
     list-style: none;
     padding: 8px;
     margin-bottom: 3px;
+    &:hover {
+      color: var(--black-900);
+    }
   }
 
   .public {
@@ -36,9 +45,38 @@ const Side = styled.div`
     border-top: 1px solid var(--black-100);
     border-bottom: 1px solid var(--black-100);
   }
-
   svg {
     margin-right: 3px;
+  }
+
+  button {
+    width: 140px;
+    height: 29px;
+    border-style: none;
+    border-radius: 4px;
+    font-size: var(--font-11);
+    margin-bottom: 5px;
+    &:active {
+      outline: 4px solid var(--black-100);
+    }
+  }
+
+  .creatbut {
+    background-color: var(--orange-400);
+    color: white;
+  }
+
+  .whybut {
+    background-color: white;
+    color: var(--black-500);
+
+    &:hover {
+      background-color: var(--black-050);
+    }
+  }
+
+  .team {
+    font-size: var(--font-11);
   }
 `;
 
@@ -46,10 +84,8 @@ export default function AsideLeft() {
   return (
     <Container>
       <Side>
-        <ul>
+        <ul className="categ">
           <li>Home</li>
-        </ul>
-        <ul>
           <li>PUBLIC</li>
           <ul>
             <li className="question">
@@ -63,17 +99,17 @@ export default function AsideLeft() {
             <li className="public">Companies</li>
           </ul>
         </ul>
-        <ul>
-          <li>TEAMS</li>
+        <ul className="teams">
+          <li className="team">TEAMS</li>
           <li className="ad">
             <strong>Stack Overflow for Teams</strong> – Start collaborating and
             sharing organizational knowledge. Create a free Team Why Teams?
             <Ad />
             <a href="https://try.stackoverflow.co/why-teams/?utm_source=so-owned&utm_medium=side-bar&utm_campaign=campaign-38&utm_content=cta">
-              <button>Create a free Team</button>
+              <button className="creatbut">Create a free Team</button>
             </a>
             <a href="https://stackoverflow.co/teams/">
-              <button>Why Teams?</button>
+              <button className="whybut">Why Teams?</button>
             </a>
           </li>
         </ul>
