@@ -7,6 +7,11 @@ const variables = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
+    --font-11 : 11px;
+    --font-12 : 12px;
+    --font-13 : 13px;
+    --font-15 : 15px;
+    --font-27 : 27px;
     --black-025: hsl(210, 8%, 97.5%);
     --black-050: hsl(210, 8%, 95%);
     --black-075: hsl(210, 8%, 90%);
