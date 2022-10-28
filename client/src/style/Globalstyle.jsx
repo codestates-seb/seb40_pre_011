@@ -7,6 +7,7 @@ const variables = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
+    --shadow : 0px 2px 4px rgba(0,0,0,0.5);
     --font-11 : 11px;
     --font-12 : 12px;
     --font-13 : 13px;
