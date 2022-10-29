@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const AsideR = styled.aside`
   margin-top: 20px;
   width: 300px;
+  height: 440px;
   border-radius: 5px;
   background-color: #fdf7e2;
   .title {
@@ -30,6 +31,9 @@ const AsideR = styled.aside`
   }
   .end {
     padding-bottom: 10px;
+  }
+  @media screen and (max-width: 1000px) {
+    display: none;
   }
 `;
 
