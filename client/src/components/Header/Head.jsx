@@ -28,6 +28,7 @@ const Head = styled.header`
     display: flex;
     align-items: center;
     border-radius: 5px;
+    max-width: 800px;
     width: 50%;
     border: solid 1px var(--black-200);
     margin-right: 8px;

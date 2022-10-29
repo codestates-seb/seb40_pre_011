@@ -10,7 +10,6 @@ const MainStyle = styled.main`
     flex-grow: 1;
   }
   .Main {
-    /* border: solid 1px red; */
     flex-grow: 5;
     margin-right: 20px;
   }
