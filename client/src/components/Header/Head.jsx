@@ -2,17 +2,23 @@ import styled from 'styled-components';
 
 const Head = styled.header`
   border-top: solid 3px var(--orange-400);
+  background-color: var(--powder-050);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow);
+  width: 100%;
   height: 50px;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
   .ham {
     display: none;
   }
   > .nav {
     color: var(--black-500);
     padding: 10px;
+    font-size: var(--font-13);
     text-decoration: none;
     :hover {
       color: var(--black-800);
