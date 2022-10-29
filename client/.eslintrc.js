@@ -8,6 +8,7 @@ module.exports = {
   rules: {
     'react/button-has-type': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 0,
     'react/jsx-filename-extension': [
       'error',
       {
