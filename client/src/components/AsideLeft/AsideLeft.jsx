@@ -9,7 +9,7 @@ export default function AsideLeft() {
       <Side>
         <ul className="categ">
           <li>Home</li>
-          <li>PUBLIC</li>
+          <li className="pub">PUBLIC</li>
           <ul>
             <li className="question">
               <strong>
@@ -27,7 +27,7 @@ export default function AsideLeft() {
           <li className="ad">
             <strong>Stack Overflow for Teams</strong> – Start collaborating and
             sharing organizational knowledge. Create a free Team Why Teams?
-            <Ad />
+            <Ad className="adimg" />
             <a href="https://try.stackoverflow.co/why-teams/?utm_source=so-owned&utm_medium=side-bar&utm_campaign=campaign-38&utm_content=cta">
               <button className="creatbut">Create a free Team</button>
             </a>

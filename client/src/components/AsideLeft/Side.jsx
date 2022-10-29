@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 const Side = styled.div`
+  ul > .pub {
+    cursor: text;
+  }
   ul > li {
     list-style: none;
     padding: 8px;
     margin-bottom: 3px;
+    cursor: pointer;
     &:hover {
       color: var(--black-900);
     }
@@ -21,9 +25,13 @@ const Side = styled.div`
   }
 
   .ad {
+    cursor: text;
     border-left: 1px solid var(--black-100);
     border-top: 1px solid var(--black-100);
     border-bottom: 1px solid var(--black-100);
+  }
+  .adimg {
+    cursor: default;
   }
   svg {
     margin-right: 3px;
@@ -42,6 +50,7 @@ const Side = styled.div`
   }
 
   .creatbut {
+    cursor: pointer;
     background-color: var(--orange-400);
     color: white;
   }
@@ -56,6 +65,7 @@ const Side = styled.div`
   }
 
   .team {
+    cursor: text;
     font-size: var(--font-11);
   }
 `;

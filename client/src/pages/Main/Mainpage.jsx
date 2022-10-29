@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import MainStyle from './MainStyle';
 import AsideLeft from '../../components/AsideLeft/AsideLeft';
 import Footer from '../../components/Footer/Footer';
+import Mainhead from './Mainhead';
 
 export default function Mainpage() {
   return (
@@ -10,7 +11,9 @@ export default function Mainpage() {
       <Header />
       <MainStyle>
         <AsideLeft className="asideleft" />
-        <div className="Main" />
+        <div className="Main">
+          <Mainhead />
+        </div>
         <AsideRight className="asideRight" />
       </MainStyle>
       <Footer />

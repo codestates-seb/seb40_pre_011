@@ -13,6 +13,7 @@ const Container = styled.nav`
   position: sticky;
   top: 7.5%;
   overflow-y: auto;
+  overflow-x: hidden;
 
   @media screen and (max-width: 640px) {
     display: none;
