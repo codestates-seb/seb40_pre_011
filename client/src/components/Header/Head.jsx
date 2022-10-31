@@ -9,7 +9,8 @@ const Head = styled.header`
   box-shadow: var(--shadow);
   width: 100%;
   height: 50px;
-  position: sticky;
+  /* position: sticky; */
+  position: fixed;
   top: 0px;
   z-index: 5;
   .ham {
@@ -45,7 +46,7 @@ const Head = styled.header`
       padding: 9px;
     }
   }
-  > .Login {
+  .Login {
     background-color: var(--blue-100);
     border: solid 1px var(--blue-500);
     color: var(--blue-500);

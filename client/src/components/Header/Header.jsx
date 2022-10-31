@@ -27,9 +27,12 @@ function Header() {
         <input id="ser" placeholder="Search.." />
       </label>
 
-      <button type="button" className="Login">
-        Login
-      </button>
+      <Link to="/login">
+        <button type="button" className="Login">
+          Login
+        </button>
+      </Link>
+
       <Link to="/join">
         <button type="button" className="SignUp">
           Sign Up
