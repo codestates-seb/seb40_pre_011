@@ -6,13 +6,21 @@ const variables = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    padding-top: 50px;
+  }
   :root{
     --shadow : 0px 2px 4px rgba(0,0,0,0.5);
+    --bs-xl: 0 10px 24px hsla(0,0%,0%,0.05), 0 20px 48px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.1);
     --font-11 : 11px;
     --font-12 : 12px;
     --font-13 : 13px;
     --font-15 : 15px;
     --font-27 : 27px;
+    --white: hsl(0,0%,100%);
     --black-025: hsl(210, 8%, 97.5%);
     --black-050: hsl(210, 8%, 95%);
     --black-075: hsl(210, 8%, 90%);

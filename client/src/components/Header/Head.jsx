@@ -9,7 +9,8 @@ const Head = styled.header`
   box-shadow: var(--shadow);
   width: 100%;
   height: 50px;
-  position: sticky;
+  /* position: sticky; */
+  position: fixed;
   top: 0px;
   z-index: 5;
   .ham {
