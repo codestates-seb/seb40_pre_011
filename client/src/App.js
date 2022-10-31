@@ -9,8 +9,8 @@ function App() {
       <Route path="/" element={<Mainpage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/logout" />
-      <Route path="/join" element={<Questions />} />
-      <Route path="/questionBoard" />
+      <Route path="/join" />
+      <Route path="/questionBoard" element={<Questions />} />
       <Route path="/questionBoard/:id" />
     </Routes>
   );

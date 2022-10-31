@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: ['airbnb', 'eslint:recommended', 'plugin:prettier/recommended'],
   rules: {
+    'import/no-unresolved': 'off',
     'react/button-has-type': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 0,

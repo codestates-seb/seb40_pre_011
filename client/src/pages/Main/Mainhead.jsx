@@ -29,7 +29,7 @@ export default function Mainhead() {
     <>
       <Head>
         <span className="title">All Questions</span>
-        <Link to="/join" className="askbutton">
+        <Link to="/questionBoard" className="askbutton">
           Ask Questions
         </Link>
       </Head>
