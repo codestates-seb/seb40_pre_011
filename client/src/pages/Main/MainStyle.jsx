@@ -10,7 +10,9 @@ const MainStyle = styled.main`
     flex-grow: 1;
   }
   .Main {
+    padding-top: 50px;
     flex-grow: 5;
+    height: 2000px;
     margin-right: 20px;
   }
   .asideRight {

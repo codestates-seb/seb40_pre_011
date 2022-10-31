@@ -14,7 +14,7 @@ export default function Mainpage() {
         <div className="Main">
           <Mainhead />
         </div>
-        <AsideRight className="asideRight" />
+        <AsideRight />
       </MainStyle>
       <Footer />
     </>
