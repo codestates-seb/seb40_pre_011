@@ -7,11 +7,11 @@ const Container = styled.nav`
   background-color: white;
   padding-top: 21px;
   border-right: 1px solid var(--black-150);
-  height: 85vh;
+  height: 100vh;
   font-size: var(--font-13);
   color: var(--black-600);
   position: sticky;
-  top: 7.5%;
+  top: 50px;
   overflow-y: auto;
   overflow-x: hidden;
 

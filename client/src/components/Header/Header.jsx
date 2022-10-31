@@ -30,9 +30,11 @@ function Header() {
       <button type="button" className="Login">
         Login
       </button>
-      <button type="button" className="SignUp">
-        Sign Up
-      </button>
+      <Link to="/join">
+        <button type="button" className="SignUp">
+          Sign Up
+        </button>
+      </Link>
     </Head>
   );
 }
