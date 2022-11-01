@@ -95,7 +95,6 @@ const Head = styled.header`
       background-color: var(--powder-050);
       > img {
         cursor: pointer;
-        fill: var(--black-800);
       }
       > input {
         display: none;
