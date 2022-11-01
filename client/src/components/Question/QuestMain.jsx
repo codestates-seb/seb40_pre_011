@@ -6,6 +6,9 @@ const QuestMain = styled.main`
   flex-direction: column;
   background-color: var(--black-050);
   .maxwid {
+    @media screen and (max-width: 1100px) {
+      width: 100%;
+    }
     max-width: 1264px;
     margin: 0px auto;
     > button {
@@ -122,6 +125,11 @@ const QuestMain = styled.main`
       margin-bottom: 12px;
       width: 191px;
       font-size: var(--font-12);
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .boardaside {
+      display: none;
     }
   }
 `;

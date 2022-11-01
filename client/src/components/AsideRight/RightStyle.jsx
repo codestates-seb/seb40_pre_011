@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const RightStyle = styled.aside`
-  margin-top: 70px;
+  margin-top: 20px;
   width: 300px;
   border-radius: 5px;
 
