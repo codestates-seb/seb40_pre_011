@@ -56,6 +56,7 @@ const Side = styled.div`
   }
 
   .whybut {
+    cursor: pointer;
     background-color: white;
     color: var(--black-500);
 

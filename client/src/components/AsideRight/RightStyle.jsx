@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
-const AsideR = styled.aside`
+const RightStyle = styled.aside`
   margin-top: 20px;
   width: 300px;
   height: 22%;
   border-radius: 5px;
-  background-color: #fdf7e2;
+
   .title {
     display: flex;
     align-items: center;
-    border: solid 1px var();
     background-color: #fbf3d5;
     padding-left: 5%;
     font-size: var(--font-12);
@@ -18,7 +17,8 @@ const AsideR = styled.aside`
   }
   .content {
     display: flex;
-    margin: 12px 0;
+    background-color: #fdf7e2;
+    padding: 12px 0;
   }
   .content > .left {
     width: 16px;
@@ -30,11 +30,11 @@ const AsideR = styled.aside`
     font-size: 13px;
   }
   .end {
-    padding-bottom: 10px;
+    padding: 10;
   }
   @media screen and (max-width: 1000px) {
     display: none;
   }
 `;
 
-export default AsideR;
+export default RightStyle;

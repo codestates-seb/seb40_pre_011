@@ -8,17 +8,17 @@ function Header() {
   return (
     <Head>
       <img src={hambugervar} alt="sidebar" className="ham" />
-      <Link href="/" className="logobar">
+      <Link to="/" className="logobar">
         <img src={logo} alt="logo" />
       </Link>
 
-      <Link href="/" className="nav About">
+      <Link to="/" className="nav About">
         About
       </Link>
-      <Link href="/" className="nav Products">
+      <Link to="/" className="nav Products">
         Products
       </Link>
-      <Link href="/" className="nav Teams">
+      <Link to="/" className="nav Teams">
         For Teams
       </Link>
 

@@ -7,7 +7,7 @@ const FooterContainer = styled.footer`
   background-color: var(--black-800);
   color: var(--black-350);
   width: 100%;
-
+  z-index: 8;
   @media screen and (max-width: 980px) {
     padding: 24px;
   }
