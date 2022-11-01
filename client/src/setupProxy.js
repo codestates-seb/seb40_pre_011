@@ -5,12 +5,15 @@ const TARGET_URL =
 
 module.exports = app => {
   app.use(
-    createProxyMiddleware('/api', {
+    createProxyMiddleware(['/member', '/content'], {
       target: TARGET_URL,
       changeOrigin: true,
-      pathRewrite: {
-        '^/api': '',
+      router: {
+        '/content': TARGET_URL,
       },
+      // pathRewrite: {
+      //   '^/api': '',
+      // },
     }),
   );
 };
