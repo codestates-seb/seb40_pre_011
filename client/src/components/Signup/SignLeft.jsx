@@ -35,12 +35,12 @@ const SignLeftform = styled.article`
   }
 `;
 
-const TeamLink = styled.a`
+export const TeamLink = styled.a`
   cursor: pointer;
-  color: var(--blue-500);
+  color: var(--blue-600);
 
   &:hover {
-    color: var(--blue-400);
+    color: var(--blue-500);
   }
 `;
 

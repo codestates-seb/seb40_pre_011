@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import SocialForm from '../../components/Login/SocialForm';
+import SignSocialForm from './SignSocialForm';
 import SignAccount from './SignAccount';
 import SignupInput from './SignupInput';
 
 const SignRightform = styled.article`
   font-size: var(--font-15);
   width: 316px;
-  margin-bottom: 24px;
+  margin: 24px 0;
 
   @media screen and (max-width: 816px) {
     padding-left: 16px;
@@ -17,7 +17,7 @@ const SignRightform = styled.article`
 export default function SignRight() {
   return (
     <SignRightform>
-      <SocialForm />
+      <SignSocialForm />
       <SignupInput />
       <SignAccount />
     </SignRightform>

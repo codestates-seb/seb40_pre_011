@@ -1,37 +1,7 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import LoginLogo from '../../components/Login/LoginLogo';
+import LoginLogo from '../Login/LoginLogo';
 import TalentLogo from '../../images/login_talent_icon.svg';
-
-const Account = styled.article`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 16px;
-  margin-bottom: 24px;
-  font-size: var(--font-13);
-  .account-talent {
-    margin-top: 14px;
-  }
-
-  a[class$='link'] {
-    color: var(--blue-600);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--blue-500);
-    }
-  }
-  .talent-icon {
-    margin-bottom: -0.1em;
-  }
-
-  @media screen and (max-width: 640px) {
-    .talent-icon {
-      display: none;
-    }
-  }
-`;
+import { Account } from '../Login/LoginAccount';
 
 export default function SignAccount() {
   return (
