@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const AsideR = styled.aside`
   margin-top: 20px;
   width: 300px;
-  height: 440px;
+  height: 22%;
   border-radius: 5px;
   background-color: #fdf7e2;
   .title {
