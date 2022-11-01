@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import LoginLogo from './LoginLogo';
 import TalentLogo from '../../images/login_talent_icon.svg';
 
-const Account = styled.article`
+export const Account = styled.article`
   display: flex;
   flex-direction: column;
   text-align: center;

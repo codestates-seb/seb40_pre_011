@@ -46,7 +46,7 @@ const Head = styled.header`
       padding: 9px;
     }
   }
-  > .Login {
+  .Login {
     background-color: var(--blue-100);
     border: solid 1px var(--blue-500);
     color: var(--blue-500);
