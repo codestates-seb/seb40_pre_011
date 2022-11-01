@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const Head = styled.header`
-  border-top: solid 3px var(--orange-400);
+  /* border-top: solid 3px var(--orange-400); */
   background-color: var(--powder-050);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
+  box-shadow: 0px 2px 4px var(--black-075);
   width: 100%;
   height: 50px;
   /* position: sticky; */
@@ -33,17 +33,19 @@ const Head = styled.header`
     width: 50%;
     border: solid 1px var(--black-200);
     margin-right: 8px;
+    background-color: var(--white);
     img {
       cursor: text;
-      padding: 3px;
-      width: 30px;
-      height: 30px;
+      margin-left: 5px;
+      width: 18px;
+      height: 18px;
     }
     input {
       outline: none;
       border: none;
       width: 94%;
       padding: 9px;
+      border-radius: 5px;
     }
   }
   .Login {
@@ -67,6 +69,7 @@ const Head = styled.header`
     border-radius: 5px;
     padding: 9px;
     margin-right: 6px;
+    position: relative;
     :hover {
       cursor: pointer;
       background-color: var(--blue-700);
@@ -82,6 +85,24 @@ const Head = styled.header`
       display: none;
     }
   }
+
+  @media screen and (max-width: 640px) {
+    .inputbox {
+      margin-left: 20%;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background-color: var(--powder-050);
+      > img {
+        cursor: pointer;
+        fill: var(--black-800);
+      }
+      > input {
+        display: none;
+      }
+    }
+  }
+
   @media screen and (max-width: 500px) {
     .logobar {
       display: flex;
@@ -92,17 +113,6 @@ const Head = styled.header`
       cursor: pointer;
       display: block;
       margin-right: 10px;
-    }
-    .inputbox {
-      margin-left: 20%;
-      width: 24px;
-      height: 24px;
-      > img {
-        cursor: pointer;
-      }
-      > input {
-        display: none;
-      }
     }
     .Products {
       display: none;

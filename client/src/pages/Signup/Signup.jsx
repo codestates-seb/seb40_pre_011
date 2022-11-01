@@ -11,7 +11,7 @@ const SignupStyle = styled.main`
   height: 100%;
   background: var(--black-050);
   color: var(--black-800);
-  padding-top: 8rem;
+  padding-top: 10rem;
   overflow: auto;
 `;
 
