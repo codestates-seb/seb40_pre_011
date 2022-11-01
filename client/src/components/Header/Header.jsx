@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Head from './Head';
-import search from '../../images/search.png';
-import logo from '../../images/logo.png';
+import search from '../../images/search.svg';
+import logo from '../../images/stackoverflow-official.svg';
 import hambugervar from '../../images/hambugervar.png';
 
 function Header() {
@@ -9,7 +9,7 @@ function Header() {
     <Head>
       <img src={hambugervar} alt="sidebar" className="ham" />
       <Link to="/" className="logobar">
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" width="150px" height="30px" />
       </Link>
 
       <Link to="/" className="nav About">
@@ -23,7 +23,7 @@ function Header() {
       </Link>
 
       <label htmlFor="ser" className="inputbox">
-        <img src={search} alt="search" />
+        <img className="search" src={search} alt="search" />
         <input id="ser" placeholder="Search.." />
       </label>
 

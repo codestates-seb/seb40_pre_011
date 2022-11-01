@@ -38,7 +38,7 @@ const Side = styled.div`
   }
 
   button {
-    width: 140px;
+    width: 130px;
     height: 29px;
     border-style: none;
     border-radius: 4px;
