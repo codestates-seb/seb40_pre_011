@@ -32,6 +32,7 @@ const Head = styled.header`
     max-width: 800px;
     width: 50%;
     border: solid 1px var(--black-200);
+    background-color: #fff;
     margin-right: 8px;
     background-color: var(--white);
     img {

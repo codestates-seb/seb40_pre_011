@@ -20,6 +20,7 @@ const variables = createGlobalStyle`
     --font-13 : 13px;
     --font-15 : 15px;
     --font-17 : 17px;
+    --font-19 : 19px;
     --font-21 : 21px;
     --font-27 : 27px;
     --white: hsl(0,0%,100%);
