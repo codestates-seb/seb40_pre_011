@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import QuestionsUl from './QuestionsUl';
 import Pagination from './Pagination';
 import Questions from './MainDummy';
@@ -26,9 +27,9 @@ function MainQuestions() {
                 <div className="views">{data.views} views</div>
               </section>
               <section className="tcu">
-                <a href="/" className="title">
+                <Link to="/questionBoard/Detail" className="title">
                   {data.title}
-                </a>
+                </Link>
                 <p className="content">{data.content}</p>
                 <footer>
                   <div className="username">{data.username}</div>
