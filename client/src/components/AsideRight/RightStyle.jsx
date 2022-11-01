@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const RightStyle = styled.aside`
   margin-top: 20px;
   width: 300px;
+  height: 22%;
   border-radius: 5px;
 
   .title {

@@ -4,7 +4,7 @@ import facebook from '../../images/facebook_icon.svg';
 import google from '../../images/google_icon.svg';
 import LoginLogo from './LoginLogo';
 
-const Social = styled.article`
+export const Social = styled.article`
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -38,7 +38,7 @@ const Social = styled.article`
   }
 `;
 
-const SocialButton = styled.button`
+export const SocialButton = styled.button`
   margin: 4px 0px;
   padding: 0.8em;
   border: 1px solid transparent;
