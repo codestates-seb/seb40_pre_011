@@ -70,6 +70,8 @@ const variables = createGlobalStyle`
     --powder-700: hsl(205, 47%, 42%);
     --powder-800: hsl(205, 46%, 32%);
     --powder-900: hsl(205, 46%, 22%);
+    --red-400 : hsl(358,68%,59%);
+    --red-500: hsl(358,62%,52%);
   }
 `;
 

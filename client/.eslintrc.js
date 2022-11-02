@@ -10,6 +10,10 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 0,
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['state'] },
+    ],
     'jsx-a11y/label-has-associated-control': [
       2,
       {
