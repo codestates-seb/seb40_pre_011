@@ -30,10 +30,16 @@ export const SignInput = styled.form`
 
   .inputbox {
     margin-top: 5px;
+    position: relative;
   }
 
-  p[class*='warning-ment'] {
+  .warning-ment.ok {
+    color: var(--red-500);
     display: none;
+  }
+
+  .warning-ment.error {
+    color: var(--red-500);
   }
 
   .checkform {
