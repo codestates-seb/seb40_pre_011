@@ -1,166 +1,224 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+import useInput from '../../hook/useInput';
 import { EmailRegex, PasswordRegex } from './SignRegex';
 import { TeamLink } from './SignLeft';
 import {
   SignInput,
   Inputlabel,
-  InputText,
   Robotlabel,
   RecapContainer,
 } from './SignupInputStyle';
-import { Warning } from '../Login/LoginWarning';
-import warningIcon from '../../images/warning_icon.svg';
+import SignTextInput from './InputText';
+import LoginWarning, { WarningMent } from '../Login/LoginWarning';
 import recaptcha from '../../images/reCAPTCHA_logo.png';
 
 export default function SignupInput() {
+  const [displayName, setDisplayName] = useInput('');
+  const [email, setEmail, emailErr, setEmailErr, resetEmail] = useInput('');
+  const [
+    password,
+    setPassword,
+    // noPasswordErr,
+    // setNoPasswordErr,
+    passwordErr,
+    setPasswordErr,
+    // passlogicErr,
+    // setPasslogicError,
+    resetPassword,
+  ] = useInput('');
+
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
   // Change
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [checkBox, setCheckBox] = useState(false);
+  // const [displayName, setDisplayName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [checkBox, setCheckBox] = useState(false);
 
   // Error
-  const [noEmailErr, setNoEmailErr] = useState(false);
-  const [emailErr, setEmailErr] = useState(false);
-  const [noPasswordErr, setNoPasswordErr] = useState(false);
-  const [passwordErr, setPasswordErr] = useState(false);
-  const [passlogicErr, setPasslogicError] = useState(false);
+  // const [noEmailErr, setNoEmailErr] = useState(false);
+  // const [emailErr, setEmailErr] = useState(false);
+  // const [noPasswordErr, setNoPasswordErr] = useState(false);
+  // const [passwordErr, setPasswordErr] = useState(false);
+  // const [passlogicErr, setPasslogicError] = useState(false);
 
-  const onDisplayNameChange = e => {
-    setDisplayName(e.target.value);
-  };
+  const SignupHandler = e => {
+    e.preventDefault();
 
-  const onEmailChange = e => {
-    setEmail(e.target.value);
-
-    if (e.target.value) {
-      if (!EmailRegex.test(e.target.value)) {
-        setEmailErr(false);
+    if (password === '' && email === '') {
+      setEmailErr(true);
+      setPasswordErr(true);
+    } else if (password === '') {
+      setPasswordErr(true);
+    } else if (EmailRegex.test(email)) {
+      if (!password === '') {
+        resetPassword();
+        resetEmail();
       } else {
-        setEmailErr(true);
+        setPasswordErr(true);
       }
-      setNoEmailErr(true);
-    } else {
-      setNoEmailErr(false);
+    } else if (!EmailRegex.test(email)) {
+      setEmailErr(true);
+    } else if (!PasswordRegex.test(password)) {
+      setPasswordErr(true);
     }
-  };
 
-  const onPasswordChange = e => {
-    setPassword(e.target.value);
+    // if (!email.length === 0) {
+    //   if (!EmailRegex.test(e.target.value)) {
+    //     setEmailErr(true);
+    //   } else {
+    //     setEmailErr(false);
+    //   }
+    //   setNoEmailErr(false);
+    // } else {
+    //   setNoEmailErr(true);
+    // }
 
-    if (e.target.value) {
-      if (!PasswordRegex.test(e.target.value)) {
-        setPasslogicError(false);
-        if (e.target.value.length < 8) {
-          setPasswordErr(false);
-        } else {
-          setPasswordErr(true);
-        }
-      } else {
-        setPasslogicError(true);
-      }
-      setNoPasswordErr(true);
-    } else {
-      setNoPasswordErr(false);
-    }
-  };
+    // if (!password.length === 0) {
+    //   if (!PasswordRegex.test(e.target.value)) {
+    //     setPasslogicError(true);
+    //     if (password.length < 8) {
+    //       setPasswordErr(true);
+    //     } else {
+    //       setPasswordErr(false);
+    //     }
+    //   } else {
+    //     setPasslogicError(false);
+    //   }
+    //   setNoPasswordErr(false);
+    // } else {
+    //   setNoPasswordErr(true);
+    // }
 
-  const onCheckboxChange = () => {
-    setCheckBox(!checkBox);
+    // const onDisplayNameChange = e => {
+    //   setDisplayName(e.target.value);
+    // };
+
+    // const onEmailChange = e => {
+    //   setEmail(e.target.value);
+
+    //   if (e.target.value) {
+    //     if (!EmailRegex.test(e.target.value)) {
+    //       setEmailErr(false);
+    //     } else {
+    //       setEmailErr(true);
+    //     }
+    //     setNoEmailErr(true);
+    //   } else {
+    //     setNoEmailErr(false);
+    //   }
+    // };
+
+    // const onPasswordChange = e => {
+    //   setPassword(e.target.value);
+
+    //   if (e.target.value) {
+    //     if (!PasswordRegex.test(e.target.value)) {
+    //       setPasslogicError(false);
+    //       if (e.target.value.length < 8) {
+    //         setPasswordErr(false);
+    //       } else {
+    //         setPasswordErr(true);
+    //       }
+    //     } else {
+    //       setPasslogicError(true);
+    //     }
+    //     setNoPasswordErr(true);
+    //   } else {
+    //     setNoPasswordErr(false);
+    //   }
+    // };
   };
 
   return (
     <SignInput>
-      <div className="displayName">
-        <Inputlabel>Display name</Inputlabel>
-        <div className="inputbox">
-          <InputText
-            id="displayName"
-            type="text"
-            value={displayName}
-            onChange={onDisplayNameChange}
-          />
-        </div>
-      </div>
-      <div className="Email">
-        <Inputlabel>Email</Inputlabel>
-        <div className="inputbox">
-          <InputText
-            id="email"
-            type="email"
-            value={email}
-            onChange={onEmailChange}
-          />
-          <Warning src={warningIcon} />
-        </div>
-        <p className={`warning-ment ${noEmailErr ? 'ok' : 'error'}`}>
-          Email cannot be empty.
-        </p>
-        <p className={`warning-ment ${emailErr ? 'ok' : 'error'}`}>
-          {email} is not a valid email address.
-        </p>
-      </div>
-      <div className="Password">
-        <Inputlabel>Password</Inputlabel>
-        <div className="inputbox">
-          <InputText
-            id="password"
-            type="password"
-            value={password}
-            onChange={onPasswordChange}
-          />
-          <Warning src={warningIcon} />
-        </div>
-        <p className={`warning-ment ${noPasswordErr ? 'ok' : 'error'}`}>
-          Password cannot be empty.
-        </p>
-        {password.length < 8 && (
-          <p className={`warning-ment ${passwordErr ? 'ok' : 'error'}`}>
-            Must contain at least {8 - password.length} more characters,
-            including at least 1 letter and 1 number.
-          </p>
-        )}
-        <p className={`warning-ment ${passlogicErr ? 'ok' : 'error'}`}>
-          Must contain at least 1 letter and 1 number.
-        </p>
-        <p>
-          Passwords must contain at least eight characters, including at least 1
-          letter and 1 number.
-        </p>
-      </div>
-      <div className="checkform">
-        <div className="robotcheck">
-          <Robotlabel>
-            <input
-              id="robotcheckbox"
-              type="checkbox"
-              value={checkBox}
-              onChange={onCheckboxChange}
+      <form className="Signup_form" onSubmit={SignupHandler}>
+        <div className="displayName">
+          <Inputlabel>Display name</Inputlabel>
+          <div className="inputbox">
+            <SignTextInput
+              id="displayName"
+              type="text"
+              value={displayName}
+              event={e => setDisplayName(e)}
             />
-            <span className="imnotrobot">I&apos;m not a robot</span>
-          </Robotlabel>
-          <RecapContainer>
-            <img src={recaptcha} width="24" alt="" />
-            <span>reCAPTCHA</span>
-            <div>
-              <p className="recatfooter"> Privacy - Terms </p>
-            </div>
-          </RecapContainer>
+          </div>
         </div>
-        <p className={`warning-ment ${checkBox ? 'ok' : 'error'}`}>
-          CAPTCHA response required.
-        </p>
-      </div>
-      <div className="checkbox">
-        <input id="receive_check" type="checkbox" />
-        <div className="checkbox_text">
-          Opt-in to receive occasional product updates, user research
-          invitations,company announcements, and digests.
+        <div className="Email">
+          <Inputlabel>Email</Inputlabel>
+          <div className="inputbox">
+            <SignTextInput
+              id="email"
+              type="email"
+              value={email}
+              event={e => setEmail(e)}
+              valid={emailErr}
+            />
+            <LoginWarning focus={emailErr} />
+          </div>
+          {/* <WarningMent focus={noEmailErr}>Email cannot be empty.</WarningMent> */}
+          <WarningMent focus={emailErr}>
+            {email} is not a valid email address.
+          </WarningMent>
         </div>
-      </div>
-      <div className="signup">
-        <button className="signup_btn">Sign up</button>
-      </div>
+        <div className="Password">
+          <Inputlabel>Password</Inputlabel>
+          <div className="inputbox">
+            <SignTextInput
+              id="password"
+              type="password"
+              value={password}
+              event={e => setPassword(e)}
+              valid={passwordErr}
+            />
+            <LoginWarning focus={passwordErr} />
+          </div>
+          {/* <WarningMent focus={noPasswordErr}>
+            Password cannot be empty.
+          </WarningMent> */}
+          {password.length < 8 && (
+            <WarningMent focus={passwordErr}>
+              Must contain at least {8 - password.length} more characters,
+              including at least 1 letter and 1 number.
+            </WarningMent>
+          )}
+          {/* <WarningMent focus={passlogicErr}>
+            Must contain at least 1 letter and 1 number.
+          </WarningMent> */}
+          <p>
+            Passwords must contain at least eight characters, including at least
+            1 letter and 1 number.
+          </p>
+        </div>
+        <div className="checkform">
+          <div className="robotcheck">
+            <Robotlabel>
+              <input id="robotcheckbox" type="checkbox" />
+              <span className="imnotrobot">I&apos;m not a robot</span>
+            </Robotlabel>
+            <RecapContainer>
+              <img src={recaptcha} width="24" alt="" />
+              <span>reCAPTCHA</span>
+              <div>
+                <p className="recatfooter"> Privacy - Terms </p>
+              </div>
+            </RecapContainer>
+          </div>
+        </div>
+        <div className="checkbox">
+          <input id="receive_check" type="checkbox" />
+          <div className="checkbox_text">
+            Opt-in to receive occasional product updates, user research
+            invitations,company announcements, and digests.
+          </div>
+        </div>
+        <div className="signup">
+          <button className="signup_btn">Sign up</button>
+        </div>
+      </form>
       <div className="policy">
         <span>By clicking “Sign up”, you agree to our </span>
         <TeamLink
