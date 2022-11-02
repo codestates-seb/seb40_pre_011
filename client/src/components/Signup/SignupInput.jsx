@@ -6,8 +6,8 @@ import {
   Robotlabel,
   RecapContainer,
 } from './SignupInputStyle';
-import { Waring } from '../Login/LoginInputForm';
-import warningIcon from '../../images/warning_icon.svg';
+// import { Waring } from '../Login/LoginInputForm';
+// import warningIcon from '../../images/warning_icon.svg';
 import recaptcha from '../../images/reCAPTCHA_logo.png';
 
 export default function SignupInput() {
@@ -23,7 +23,7 @@ export default function SignupInput() {
         <Inputlabel>Email</Inputlabel>
         <div className="inputbox">
           <InputText id="email" type="email" />
-          <Waring src={warningIcon} />
+          {/* <Waring src={warningIcon} /> */}
         </div>
         <p className="warning-ment">Email cannot be empty.</p>
         <p className="warning-ment">{}is not a valid email address.</p>
@@ -32,7 +32,7 @@ export default function SignupInput() {
         <Inputlabel>Password</Inputlabel>
         <div className="inputbox">
           <InputText id="password" type="password" />
-          <Waring src={warningIcon} />
+          {/* <Waring src={warningIcon} /> */}
         </div>
         <p className="warning-ment">Password cannot be empty.</p>
         <p className="warning-ment">
