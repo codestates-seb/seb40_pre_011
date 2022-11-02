@@ -1,12 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import loginService from '../service/loginService';
 
-export const loginAsync = createAsyncThunk();
+export const loginAsync = createAsyncThunk(
+  'login/loginAsync',
+  async (url, info) => {
+    const login = await loginService.login(url, info);
 
-export const logoutAsync = createAsyncThunk();
+    return login.data;
+  },
+);
 
-const loginService = {
-  loginAsync,
-  logoutAsync,
-};
+export const logoutAsync = createAsyncThunk('login/logoutAsync', async url => {
+  const logout = await loginService.logout(url);
 
-export default loginService;
+  return logout.data;
+});
