@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import warningIcon from '../../images/warning_icon.svg';
+import useInput from '../../hook/useInput';
+import LoginInput from './LoginInput';
+import pattern from './LoginRegExp';
+import LoginWarning, { WarningMent } from './LoginWarning';
+import { loginAsync } from '../../action/loginAsync';
 
 const Inputbox = styled.article`
   box-shadow: var(--bs-xl);
@@ -35,23 +40,6 @@ const Inputbox = styled.article`
     display: flex;
     position: relative;
     margin: 2px;
-
-    .email-input {
-      width: 100%;
-      margin: 0px;
-      padding: 0.6em 0.7em;
-      border: 1px solid var(--black-200);
-      border-radius: 3px;
-      background-color: var(--white);
-      color: var(--black-900);
-      font-size: var(--font-13);
-      &:focus {
-        border: 1px solid #38a9f0;
-        box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
-        color: var(--black-900);
-        outline: 0;
-      }
-    }
   }
   .password {
     margin: 6px 0px;
@@ -81,26 +69,6 @@ const Inputbox = styled.article`
     display: flex;
     position: relative;
     margin: 2px;
-
-    .password-input {
-      width: 100%;
-      margin: 0px;
-      padding: 0.6em 0.7em;
-      border: 1px solid var(--black-200);
-      border-radius: 3px;
-      background-color: var(--white);
-      color: var(--black-900);
-      font-size: var(--font-13);
-      &:focus {
-        border: 1px solid #38a9f0;
-        box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
-        color: var(--black-900);
-        outline: 0;
-      }
-    }
-  }
-  p[class*='warning-ment'] {
-    display: none;
   }
 
   .login {
@@ -130,33 +98,64 @@ const Inputbox = styled.article`
     }
   }
 `;
-
-export const Waring = styled.img`
-  width: 18px;
-  height: 18px;
-  vertical-align: baseline;
-  display: none;
-  position: absolute;
-  top: 50%;
-  margin-top: -9px;
-  right: 0.7em;
-`;
-
 function LoginInputForm() {
+  const [email, setEmail, resetEmail, emailValid, setEmailValid] = useInput('');
+  const [
+    password,
+    setPassword,
+    resetPassword,
+    passwordValid,
+    setPasswordValid,
+  ] = useInput('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const loginSendHandler = e => {
+    e.preventDefault();
+
+    if (password === '' && email === '') {
+      setEmailValid(true);
+      setPasswordValid(true);
+    } else if (password === '') {
+      setPasswordValid(true);
+    } else if (pattern.test(email)) {
+      if (!password === '') {
+        resetPassword();
+        resetEmail();
+
+        dispatch(loginAsync('/member/', { email, password }))
+          .unwrap()
+          .then(() => {
+            navigate('/');
+          })
+          .catch();
+      } else {
+        setPasswordValid(true);
+      }
+    } else if (!pattern.test(email)) {
+      setEmailValid(true);
+    }
+  };
+
   return (
     <Inputbox>
-      <form className="login_form">
+      <form className="login_form" onSubmit={loginSendHandler}>
         <div className="email">
           <label htmlFor="email" className="email-label">
             Email
           </label>
           <div className="email-inputbox">
-            <input id="email" type="email" className="email-input" />
-            <Waring src={warningIcon} />
+            <LoginInput
+              id="email"
+              value={email}
+              event={e => setEmail(e)}
+              valid={emailValid}
+            />
+            <LoginWarning focus={emailValid} />
           </div>
-          <p className="warning-ment">
+          <WarningMent focus={emailValid}>
             The email is not a valid email address.
-          </p>
+          </WarningMent>
         </div>
         <div className="password">
           <div className="password-label-box">
@@ -168,18 +167,24 @@ function LoginInputForm() {
             </Link>
           </div>
           <div className="password-inputbox">
-            <input id="password" type="password" className="password-input" />
-            <Waring src={warningIcon} />
+            <LoginInput
+              id="password"
+              type="password"
+              value={password}
+              event={e => setPassword(e)}
+              valid={passwordValid}
+            />
+            <LoginWarning focus={passwordValid} />
           </div>
-          <p className='warning-ment"'>
-            The email is not a valid email address.
-          </p>
+          <WarningMent focus={passwordValid}>
+            Password cannot be empty.
+          </WarningMent>
         </div>
         <div className="login">
           <button className="login-btn">Log in</button>
-          <p className='warning-ment"'>
+          {/* <p className='warning-ment"'>
             The email is not a valid email address.
-          </p>
+          </p> */}
         </div>
       </form>
     </Inputbox>

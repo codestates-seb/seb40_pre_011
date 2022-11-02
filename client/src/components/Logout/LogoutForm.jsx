@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import askLogo from '../../images/logout_ask_icon.svg';
 import mathoverflow from '../../images/logout_math_icon.svg';
 import serverfault from '../../images/logout_server_icon.svg';
@@ -8,6 +9,7 @@ import stackexchange from '../../images/logout_exchange_icon.svg';
 import stackoverflow from '../../images/footer_logo.png';
 import superuser from '../../images/logout_user_icon.svg';
 import LoginLogo from '../Login/LoginLogo';
+import { logoutAsync } from '../../action/loginAsync';
 
 const ContentItem = styled.article`
   .ment-box {
@@ -131,6 +133,13 @@ const ContentItem = styled.article`
 `;
 
 function LogoutForm() {
+  const dispatch = useDispatch();
+  const logoutHandler = e => {
+    e.preventDefault();
+
+    dispatch(logoutAsync('/logout'));
+  };
+
   return (
     <ContentItem>
       <article className="ment-box">
@@ -140,7 +149,7 @@ function LogoutForm() {
         </span>
       </article>
       {/* 나중에 반복문으로 수정 */}
-      <form className="logout-form">
+      <form className="logout-form" onSubmit={logoutHandler}>
         <ul className="link-list">
           <li>
             <Link to="/">
