@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import signupAsync from '../../action/signupAsync';
 import useInput from '../../hook/useInput';
 import { EmailRegex, PasswordRegex } from './SignRegex';
@@ -35,6 +35,10 @@ export default function SignupInput() {
     passwordErrMent,
     setPasswordErrMent,
   ] = useInput('');
+
+  // checkbox 체크 안 할 시, 버튼 비활성화
+  const [checkbox, setCheckbox] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -159,7 +163,13 @@ export default function SignupInput() {
       <div className="checkform">
         <div className="robotcheck">
           <Robotlabel>
-            <input id="robotcheckbox" type="checkbox" />
+            <input
+              id="robotcheckbox"
+              type="checkbox"
+              onClick={() => {
+                setCheckbox(!checkbox);
+              }}
+            />
             <span className="imnotrobot">I&apos;m not a robot</span>
           </Robotlabel>
           <RecapContainer>
@@ -179,7 +189,9 @@ export default function SignupInput() {
         </div>
       </div>
       <div className="signup">
-        <button className="signup_btn">Sign up</button>
+        <button disabled={disabled} className="signup_btn">
+          Sign up
+        </button>
       </div>
       <div className="policy">
         <span>By clicking “Sign up”, you agree to our </span>
