@@ -11,10 +11,11 @@ const signup = (displayName, email, password) => {
         },
       },
     )
-    .then(() => {
+    .then(data => {
       // eslint-disable-next-line no-alert
       alert('Successssssssssssssssssss');
       console.log('성공!');
+      return data;
     })
     .catch(error => {
       if (error.message === 'Request failed with status code 500') {
@@ -22,6 +23,7 @@ const signup = (displayName, email, password) => {
         alert('Errorrrrrrrrrrrrrrrrrrrrr');
       }
       console.log(error);
+      return error;
     });
 };
 

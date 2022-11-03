@@ -49,8 +49,13 @@ export default function SignupInput() {
         EmailRegex.test(email) === true &&
         PasswordRegex.test(password) === true
       ) {
-        dispatch(signupAsync('/signup', { displayName, email, password }));
-        navigate('/login');
+        dispatch(signupAsync({ url: '/signup', displayName, email, password }))
+          .unwrap()
+          .then(() => {
+            navigate('/login');
+          })
+          .catch();
+        // 중복될 때 login 페이지로 못 가게! then안에서 if문으로 처리(401일때 navigate 안되게...unwrap쓰고, catch 안됨)
       }
 
       const errMsg = [

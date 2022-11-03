@@ -14,15 +14,25 @@ const signupSlice = createSlice({
     [signupAsync.pending]: state => {
       state.loading = true;
     },
-    [signupAsync.fulfilled]: state => {
-      state.loading = false;
-      state.signupSuccess = true;
+    [signupAsync.fulfilled]: (state, action) => {
+      // 수정 필
+      state.loading = action.payload.Loading;
+      state.signupSuccess = action.payload.SignupSuccess;
+      state.signupError = action.payload.SignupError;
+      state.rejectReason = action.payload.RejectReason;
+      console.log('here is state!');
+      console.log(
+        state.loading,
+        state.signupSuccess,
+        state.signupError,
+        state.rejectReason,
+      );
     },
     [signupAsync.rejected]: (state, action) => {
-      state.loading = false;
-      state.signupError = true;
-      state.signupDone = false;
-      state.rejectReason = action.error;
+      state.loading = action.payload.Loading;
+      state.signupError = action.payload.SignupError;
+      state.signupDone = action.payload.SignupSuccess;
+      state.rejectReason = action.payload.RejectReason;
     },
   },
 });
