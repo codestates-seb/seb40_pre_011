@@ -9,15 +9,11 @@ export const SignInput = styled.form`
   margin-right: auto;
   margin-left: auto;
 
-  p {
+  .passment {
     color: var(--black-500);
     font-size: var(--font-12);
     margin: 4px 0;
     margin-bottom: 15px;
-
-    li {
-      margin: 10px;
-    }
   }
 
   .displayName {

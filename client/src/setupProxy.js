@@ -5,7 +5,7 @@ const TARGET_URL =
 
 module.exports = app => {
   app.use(
-    createProxyMiddleware(['/member', '/content'], {
+    createProxyMiddleware(['/member', '/content', '/signup'], {
       target: TARGET_URL,
       changeOrigin: true,
       router: {
