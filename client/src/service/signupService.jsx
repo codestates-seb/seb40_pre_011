@@ -1,21 +1,27 @@
 import axios from 'axios';
 
-const signup = (displayName, eamil, password) => {
+const signup = (displayName, email, password) => {
   return axios
     .post(
-      'http://localhost:3000/signup',
-      { displayName, eamil, password },
+      'http://localhost:3001/signup',
+      { displayName, email, password },
       {
         headers: {
           'Content-Type': 'application/json',
         },
       },
     )
-    .then(res => {
-      return res;
+    .then(() => {
+      // eslint-disable-next-line no-alert
+      alert('Successssssssssssssssssss');
+      console.log('성공!');
     })
-    .catch(err => {
-      return err;
+    .catch(error => {
+      if (error.message === 'Request failed with status code 500') {
+        // eslint-disable-next-line no-alert
+        alert('Errorrrrrrrrrrrrrrrrrrrrr');
+      }
+      console.log(error);
     });
 };
 

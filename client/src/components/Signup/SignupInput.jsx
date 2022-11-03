@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 import signupAsync from '../../action/signupAsync';
 import useInput from '../../hook/useInput';
 import { EmailRegex, PasswordRegex } from './SignRegex';
@@ -38,68 +39,73 @@ export default function SignupInput() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const SignupHandler = e => {
-    e.preventDefault();
+  const SignupHandler = useCallback(
+    e => {
+      e.preventDefault();
 
-    dispatch(signupAsync('/signup', { displayName, email, password }))
-      .unwrap()
-      .then(() => {
-        console.log('sign up suceed');
+      if (
+        email.length !== 0 &&
+        password.length !== 0 &&
+        EmailRegex.test(email) === true &&
+        PasswordRegex.test(password) === true
+      ) {
+        dispatch(signupAsync('/signup', { displayName, email, password }));
         navigate('/login');
-      })
-      .catch(() => {});
+      }
 
-    const errMsg = [
-      `Email cannot be empty.`,
-      `${email} is not a valid email address.`,
-      `Password cannot be empty.`,
-      `Must contain at least ${
-        8 - password.length
-      } more characters, including at least 1 letter and 1 number.`,
-      `Must contain at least 1 letter and 1 number.`,
-    ];
+      const errMsg = [
+        `Email cannot be empty.`,
+        `${email} is not a valid email address.`,
+        `Password cannot be empty.`,
+        `Must contain at least ${
+          8 - password.length
+        } more characters, including at least 1 letter and 1 number.`,
+        `Must contain at least 1 letter and 1 number.`,
+      ];
 
-    if (password === '' && email === '') {
-      setEmailErr(true);
-      setPasswordErr(true);
-      setEmailErrMent(errMsg[0]);
-      setPasswordErrMent(errMsg[2]);
-      resetEmail();
-      resetPassword();
-    } else if (password === '') {
-      setPasswordErr(true);
-      setPasswordErrMent(errMsg[2]);
-    } else if (email === '') {
-      setEmailErr(true);
-      setEmailErrMent(errMsg[0]);
-    } else if (EmailRegex.test(email)) {
-      setEmailErr(false);
-      if (!PasswordRegex.test(password)) {
+      if (password === '' && email === '') {
+        setEmailErr(true);
         setPasswordErr(true);
-        if (password.length < 8) {
-          setPasswordErrMent(errMsg[3]);
-        } else {
-          setPasswordErrMent(errMsg[4]);
-        }
-      } else {
-        setPasswordErr(false);
-      }
-    } else if (!EmailRegex.test(email)) {
-      setEmailErr(true);
-      setEmailErrMent(errMsg[1]);
-      if (!PasswordRegex.test(password)) {
-        if (password.length < 8) {
+        setEmailErrMent(errMsg[0]);
+        setPasswordErrMent(errMsg[2]);
+        resetEmail();
+        resetPassword();
+      } else if (password === '') {
+        setPasswordErr(true);
+        setPasswordErrMent(errMsg[2]);
+      } else if (email === '') {
+        setEmailErr(true);
+        setEmailErrMent(errMsg[0]);
+      } else if (EmailRegex.test(email)) {
+        setEmailErr(false);
+        if (!PasswordRegex.test(password)) {
           setPasswordErr(true);
-          setPasswordErrMent(errMsg[3]);
+          if (password.length < 8) {
+            setPasswordErrMent(errMsg[3]);
+          } else {
+            setPasswordErrMent(errMsg[4]);
+          }
         } else {
-          setPasswordErr(true);
-          setPasswordErrMent(errMsg[4]);
+          setPasswordErr(false);
         }
-      } else {
-        setPasswordErr(false);
+      } else if (!EmailRegex.test(email)) {
+        setEmailErr(true);
+        setEmailErrMent(errMsg[1]);
+        if (!PasswordRegex.test(password)) {
+          if (password.length < 8) {
+            setPasswordErr(true);
+            setPasswordErrMent(errMsg[3]);
+          } else {
+            setPasswordErr(true);
+            setPasswordErrMent(errMsg[4]);
+          }
+        } else {
+          setPasswordErr(false);
+        }
       }
-    }
-  };
+    },
+    [displayName, email, password],
+  );
 
   return (
     <SignInput onSubmit={SignupHandler}>

@@ -5,24 +5,21 @@ const signupSlice = createSlice({
   name: 'signup',
   initialState: {
     loading: false,
-    signupError: '',
-    signupDone: '',
-    rejectReason: '',
+    signupError: false,
+    signupSuccess: false,
+    errorMessage: '',
   },
   reducers: {},
   extraReducers: {
     [signupAsync.pending]: state => {
       state.loading = true;
-      state.signupDone = false;
     },
-    [signupAsync.fulfilled]: (state, action) => {
-      // action값을 기준으로 처리
-      console.log(action.payload);
+    [signupAsync.fulfilled]: state => {
       state.loading = false;
-      state.signupDone = true;
-      state.rejectReason = '';
+      state.signupSuccess = true;
     },
     [signupAsync.rejected]: (state, action) => {
+      state.loading = false;
       state.signupError = true;
       state.signupDone = false;
       state.rejectReason = action.error;
