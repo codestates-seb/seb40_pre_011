@@ -29,16 +29,18 @@ const Side = styled.div`
     border-left: 1px solid var(--black-100);
     border-top: 1px solid var(--black-100);
     border-bottom: 1px solid var(--black-100);
+    margin-left: 2px;
   }
   .adimg {
     cursor: default;
+    margin-left: 5px;
   }
   svg {
     margin-right: 3px;
   }
 
   button {
-    width: 130px;
+    width: 140px;
     height: 29px;
     border-style: none;
     border-radius: 4px;
