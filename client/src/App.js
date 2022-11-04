@@ -20,7 +20,7 @@ function App() {
         <Route path="/logout" element={<LogoutPage />} />
         <Route path="/join" element={<Signup />} />
         <Route path="/questionBoard" element={<Questions />} />
-        <Route path="/questionBoard/Detail" element={<QuestionDetail />} />
+        <Route path="/questionBoard/:id/update" element={<QuestionDetail />} />
       </Routes>
     </Suspense>
   );

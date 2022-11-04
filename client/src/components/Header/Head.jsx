@@ -23,6 +23,7 @@ const Head = styled.header`
   > .nav {
     color: var(--black-500);
     padding: 10px;
+    margin-right: 10px;
     font-size: var(--font-13);
     text-decoration: none;
     margin: 0px 2px;

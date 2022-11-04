@@ -7,12 +7,21 @@ const MainStyle = styled.main`
   justify-content: space-between;
   margin: 0 auto;
   .Main {
-    width: 780px;
+    max-width: 780px;
     margin-right: 20px;
+    width: 100%;
   }
   @media screen and (max-width: 1000px) {
     .asideRight {
       display: none;
+    }
+    .Main {
+      width: 80%;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .Main {
+      width: 100%;
     }
   }
 `;

@@ -10,7 +10,6 @@ function Questionsboard() {
         <QuestionHead />
         <Questioncontent />
         <Question />
-        <button>Review your question</button>
       </div>
     </QuestMain>
   );
