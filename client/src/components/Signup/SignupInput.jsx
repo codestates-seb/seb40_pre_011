@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import signupAsync from '../../action/signupAsync';
 import useInput from '../../hook/useInput';
 import { EmailRegex, PasswordRegex } from './SignRegex';
@@ -11,7 +11,7 @@ import {
   Robotlabel,
   RecapContainer,
 } from './SignupInputStyle';
-import SignTextInput from './InputText';
+import SignTextInput from '../Login/LoginInput';
 import LoginWarning, { WarningMent } from '../Login/LoginWarning';
 import recaptcha from '../../images/reCAPTCHA_logo.png';
 
@@ -35,10 +35,6 @@ export default function SignupInput() {
     passwordErrMent,
     setPasswordErrMent,
   ] = useInput('');
-
-  // checkbox 체크 안 할 시, 버튼 비활성화
-  const [checkbox, setCheckbox] = useState(false);
-  const [disabled, setDisabled] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -82,9 +78,29 @@ export default function SignupInput() {
       } else if (password === '') {
         setPasswordErr(true);
         setPasswordErrMent(errMsg[2]);
+        if (email !== '') {
+          if (!EmailRegex.test(email)) {
+            setEmailErr(true);
+            setEmailErrMent(errMsg[1]);
+          } else {
+            setEmailErr(false);
+          }
+        }
       } else if (email === '') {
         setEmailErr(true);
         setEmailErrMent(errMsg[0]);
+        if (password !== '') {
+          if (!PasswordRegex.test(password)) {
+            setPasswordErr(true);
+            if (password.length < 8) {
+              setPasswordErrMent(errMsg[3]);
+            } else {
+              setPasswordErrMent(errMsg[4]);
+            }
+          } else {
+            setPasswordErr(false);
+          }
+        }
       } else if (EmailRegex.test(email)) {
         setEmailErr(false);
         if (!PasswordRegex.test(password)) {
@@ -163,13 +179,7 @@ export default function SignupInput() {
       <div className="checkform">
         <div className="robotcheck">
           <Robotlabel>
-            <input
-              id="robotcheckbox"
-              type="checkbox"
-              onClick={() => {
-                setCheckbox(!checkbox);
-              }}
-            />
+            <input id="robotcheckbox" type="checkbox" />
             <span className="imnotrobot">I&apos;m not a robot</span>
           </Robotlabel>
           <RecapContainer>
@@ -189,9 +199,7 @@ export default function SignupInput() {
         </div>
       </div>
       <div className="signup">
-        <button disabled={disabled} className="signup_btn">
-          Sign up
-        </button>
+        <button className="signup_btn">Sign up</button>
       </div>
       <div className="policy">
         <span>By clicking “Sign up”, you agree to our </span>

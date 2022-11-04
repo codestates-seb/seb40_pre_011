@@ -38,7 +38,7 @@ const SignLeftform = styled.article`
 export const TeamLink = styled.a`
   cursor: pointer;
   color: var(--blue-600);
-
+  text-decoration: none;
   &:hover {
     color: var(--blue-500);
   }
