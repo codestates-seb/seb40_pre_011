@@ -7,9 +7,9 @@ StackOverFlow 사이트를 클론
 <br>
 ###Front-end
 <br>
-![리액트](https://user-images.githubusercontent.com/89185550/199908949-2fdf0b47-4147-4371-9445-2df5e839b249.png)
-![image](https://user-images.githubusercontent.com/89185550/199908971-c24d1f39-16e3-4758-97dd-81281fc1533c.png)
-![image](https://user-images.githubusercontent.com/89185550/199908998-da11bbf1-4ae7-4a66-bade-bb65780038f1.png)
+![React](https://user-images.githubusercontent.com/89185550/199909625-de7bb6e4-33dc-4050-938c-2882ad2b6f0d.png)
+![리덕스](https://user-images.githubusercontent.com/89185550/199909641-32283f79-4586-47b6-b4d0-9713bb9e46e6.png)
+![styled](https://user-images.githubusercontent.com/89185550/199909658-456315a4-b417-4e67-ab2c-6af61507585e.png)
 
 
 ## 팀원소개
