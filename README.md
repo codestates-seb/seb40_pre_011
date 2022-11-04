@@ -8,7 +8,9 @@ StackOverFlow 사이트를 클론
 ###Front-end
 <br>
 ![React](https://user-images.githubusercontent.com/89185550/199909625-de7bb6e4-33dc-4050-938c-2882ad2b6f0d.png)
+<br>
 ![리덕스](https://user-images.githubusercontent.com/89185550/199909641-32283f79-4586-47b6-b4d0-9713bb9e46e6.png)
+<br>
 ![styled](https://user-images.githubusercontent.com/89185550/199909658-456315a4-b417-4e67-ab2c-6af61507585e.png)
 
 
