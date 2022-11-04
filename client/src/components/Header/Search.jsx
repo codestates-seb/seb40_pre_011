@@ -14,7 +14,7 @@ function SearchContent() {
             <span>user:1234 </span> search by author
           </p>
           <p>
-            <span>&quot; words here&quot; </span>exact phrase
+            <span>&quot;words here&quot; </span>exact phrase
           </p>
           <p>
             <span>collective:&quot;Name&quot; </span>collective content

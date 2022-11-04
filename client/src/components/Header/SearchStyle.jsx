@@ -56,6 +56,9 @@ const Search = styled.form`
       box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
     }
   }
+  /* @media screen and (max-width: 660px) {
+    display: none;
+  } */
 `;
 
 export default Search;
