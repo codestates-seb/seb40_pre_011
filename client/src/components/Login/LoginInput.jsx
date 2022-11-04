@@ -15,7 +15,6 @@ const Input = styled.input`
     box-shadow: 0px 0px 0px 4px
       ${props =>
         props.focus ? 'hsla(358,62%,47%,0.15)' : 'hsla(206, 100%, 40%, 0.15)'};
-
     color: var(--black-900);
     outline: 0;
   }
