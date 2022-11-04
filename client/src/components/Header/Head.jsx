@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Head = styled.header`
-  /* border-top: solid 3px var(--orange-400); */
+  border-top: solid 3px var(--orange-400);
   background-color: var(--powder-050);
   display: flex;
   align-items: center;
@@ -9,10 +9,14 @@ const Head = styled.header`
   box-shadow: 0px 2px 4px var(--black-075);
   width: 100%;
   height: 50px;
-  /* position: sticky; */
   position: fixed;
   top: 0px;
   z-index: 5;
+  .logobar {
+    &:hover {
+      background-color: var(--black-075);
+    }
+  }
   .ham {
     display: none;
   }
@@ -21,8 +25,11 @@ const Head = styled.header`
     padding: 10px;
     font-size: var(--font-13);
     text-decoration: none;
+    margin: 0px 2px;
     :hover {
       color: var(--black-800);
+      background-color: var(--black-075);
+      border-radius: 25%;
     }
   }
   > .inputbox {
@@ -76,6 +83,33 @@ const Head = styled.header`
       background-color: var(--blue-700);
       border: solid 1px var(--blue-300);
       color: var(--black-025);
+    }
+  }
+  .loginToolbar {
+    height: 100%;
+
+    > ol {
+      display: flex;
+      list-style: none;
+      justify-content: space-evenly;
+      line-height: 50px;
+      .toolbar_user {
+        padding: 0px 12px;
+        > a {
+          text-decoration: none;
+        }
+      }
+      > li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px;
+        position: relative;
+        &:hover {
+          color: var(--black-800);
+          background-color: var(--black-075);
+        }
+      }
     }
   }
   @media screen and (max-width: 1000px) {
