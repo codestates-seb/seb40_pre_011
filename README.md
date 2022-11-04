@@ -9,15 +9,15 @@ StackOverFlow 사이트를 클론!!!!
 
 <br/>
 <p>
-<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="100px"/>
-<img src="https://camo.githubusercontent.com/9eb91892d3969439e38151d9985cc1709f2bfd6062c4ff9e3518f355d4457cd6/68747470733a2f2f6e6f7469636f6e2d7374617469632e74616d6d6f6c6f2e636f6d2f6467676763726b78712f696d6167652f75706c6f61642f76313536373734393631342f6e6f7469636f6e2f7a6764617870616966356f6a6564756f6e7967622e706e67" width="100px"/>
-<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="100px"/>
+<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="15%"/>
+<img src="https://camo.githubusercontent.com/9eb91892d3969439e38151d9985cc1709f2bfd6062c4ff9e3518f355d4457cd6/68747470733a2f2f6e6f7469636f6e2d7374617469632e74616d6d6f6c6f2e636f6d2f6467676763726b78712f696d6167652f75706c6f61642f76313536373734393631342f6e6f7469636f6e2f7a6764617870616966356f6a6564756f6e7967622e706e67" width="15%"/>
+<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="15%"/>
 </ p>
 
 ### Back-end
 
 <p>
-<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="100px"/>
+<img src="https://user-images.githubusercontent.com/89185550/199911643-f4aa19c4-44e7-4b6b-a669-e033173203bd.png" width="15%"/>
 </ p>
 
 <br/>
