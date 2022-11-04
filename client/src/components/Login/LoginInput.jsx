@@ -11,8 +11,10 @@ const Input = styled.input`
   color: var(--black-900);
   font-size: var(--font-13);
   &:focus {
-    border: 1px solid #38a9f0;
-    box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+    border: 1px solid ${props => (props.focus ? 'hsl(358,68%,59%)' : '#38a9f0')};
+    box-shadow: 0px 0px 0px 4px
+      ${props =>
+        props.focus ? 'hsla(358,62%,47%,0.15)' : 'hsla(206, 100%, 40%, 0.15)'};
     color: var(--black-900);
     outline: 0;
   }

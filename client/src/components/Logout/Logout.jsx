@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoutForm from './LogoutForm';
 
@@ -24,6 +27,13 @@ const LogoutContainer = styled.main`
 `;
 
 function Logout() {
+  const { isLogin } = useSelector(state => state.login);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogin) {
+      navigate('/');
+    }
+  }, []);
   return (
     <LogoutContainer>
       <section className="logout-content">
