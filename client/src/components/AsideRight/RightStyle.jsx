@@ -32,7 +32,7 @@ const RightStyle = styled.aside`
   .end {
     padding: 10;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     display: none;
   }
 `;

@@ -11,20 +11,6 @@ const QuestMain = styled.main`
     }
     max-width: 1264px;
     margin: 0px auto;
-    > button {
-      width: 150px;
-      height: 37px;
-      border: none;
-      border-radius: 3px;
-      background-color: var(--blue-400);
-      font-size: 13.6px;
-      margin: 20px 0 50px;
-      color: white;
-      :hover {
-        cursor: pointer;
-        background-color: var(--blue-600);
-      }
-    }
   }
   .head {
     display: flex;
@@ -77,13 +63,58 @@ const QuestMain = styled.main`
     margin-bottom: 7px;
   }
   #titleinput,
-  #taginput {
+  /* #taginput, */
+  #bodyinput {
     padding: 8px 10px;
     width: 100%;
     margin-bottom: 10px;
     height: 35px;
     border: 1px solid rgb(186, 191, 196);
     border-radius: 3px;
+    &:focus {
+      border: 1px solid #38a9f0;
+      box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+      color: var(--black-900);
+      outline: 0;
+    }
+  }
+  #notitle {
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 35px;
+    border: 1px solid rgb(186, 191, 196);
+    border-radius: 3px;
+    &:focus {
+      border: 1px solid var(--red-500);
+      box-shadow: 0px 0px 0px 4px hsla(358, 62%, 47%, 0.15);
+      color: var(--black-900);
+      outline: 0;
+    }
+  }
+  .question > .able {
+    width: 150px;
+    height: 37px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--blue-400);
+    font-size: 13.6px;
+    margin: 20px 0 50px;
+    color: white;
+    :hover {
+      cursor: pointer;
+      background-color: var(--blue-600);
+    }
+  }
+  .question > button {
+    width: 150px;
+    height: 37px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--black-400);
+    font-size: 13.6px;
+    margin: 20px 0 50px;
+    color: white;
   }
   .box {
     margin: 10px 10px 10px 0;
@@ -94,6 +125,23 @@ const QuestMain = styled.main`
     padding: 20px;
     background-color: #fff;
     border: 1px solid rgb(186, 191, 196);
+
+    .on {
+      margin-top: -5px;
+      margin-bottom: 10px;
+      color: rgb(208, 57, 62);
+      font-size: var(--font-12);
+    }
+    .no {
+      display: none;
+    }
+    .inputbox {
+      .notitle,
+      .titleinput,
+      .warningtitle {
+        position: absolute;
+      }
+    }
   }
   .boardaside {
     margin-left: 50px;

@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import asynclistFetch from '../../action/asynclistFetch';
 import Pagenav from './Pagenav';
 
-function Pagination({
-  postPerPage,
-  totalPosts,
-  paginate,
-  currentPage,
-  setCurrentPage,
-}) {
+function Pagination() {
   const pageNumbers = [];
+  const dispatch = useDispatch();
+  const pagedata = useSelector(state => state.content.pageInfo);
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i += 1) {
+  for (
+    let i = 1;
+    i <= Math.ceil(pagedata.totalElements / pagedata.size);
+    i += 1
+  ) {
     pageNumbers.push(i);
   }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pagedata]);
   return (
     <Pagenav>
       <ul>
         <li>
           <button
-            disabled={currentPage <= 1}
+            disabled={pagedata.page <= 1}
             onClick={() => {
-              setCurrentPage(currentPage - 1);
+              dispatch(asynclistFetch(pagedata.page - 1));
             }}
             className="Prev"
           >
@@ -33,9 +38,9 @@ function Pagination({
               <li key={number}>
                 <button
                   onClick={() => {
-                    paginate(number);
+                    dispatch(asynclistFetch(number));
                   }}
-                  className={currentPage === number ? 'active' : 'buttons'}
+                  className={pagedata.page === number ? 'active' : 'buttons'}
                 >
                   {number}
                 </button>
@@ -44,9 +49,9 @@ function Pagination({
           })}
         <li>
           <button
-            disabled={currentPage >= pageNumbers.length}
+            disabled={pagedata.page >= pagedata.totalPages}
             onClick={() => {
-              setCurrentPage(currentPage + 1);
+              dispatch(asynclistFetch(pagedata.page + 1));
             }}
             className="Next"
           >

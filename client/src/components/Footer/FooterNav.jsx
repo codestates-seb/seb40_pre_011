@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import uuid from 'react-uuid';
 import FooterNavContent from './FooterNavContent';
 import FooterNavLink from './FooterNavLink';
 
@@ -18,7 +19,11 @@ function FooterNav() {
     <NavContainer>
       {FooterNavLink.map(content => {
         return (
-          <FooterNavContent title={content.title} linkList={content.list} />
+          <FooterNavContent
+            key={uuid()}
+            title={content.title}
+            linkList={content.list}
+          />
         );
       })}
     </NavContainer>
