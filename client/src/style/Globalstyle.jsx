@@ -15,6 +15,7 @@ const variables = createGlobalStyle`
   :root{
     --shadow : 0px 2px 4px rgba(0,0,0,0.5);
     --bs-xl: 0 10px 24px hsla(0,0%,0%,0.05), 0 20px 48px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.1);
+    --bs-sm: 0 1px 2px hsla(0,0%,0%,0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05), 0 2px 8px hsla(0, 0%, 0%, 0.05);
     --font-11 : 11px;
     --font-12 : 12px;
     --font-13 : 13px;

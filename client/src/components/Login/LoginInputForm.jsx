@@ -99,13 +99,23 @@ const Inputbox = styled.article`
   }
 `;
 function LoginInputForm() {
-  const [email, setEmail, resetEmail, emailValid, setEmailValid] = useInput('');
+  const [
+    email,
+    setEmail,
+    resetEmail,
+    emailValid,
+    setEmailValid,
+    emailMent,
+    setEmailMent,
+  ] = useInput('');
   const [
     password,
     setPassword,
     resetPassword,
     passwordValid,
     setPasswordValid,
+    passwordMent,
+    setPasswordMent,
   ] = useInput('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -116,24 +126,38 @@ function LoginInputForm() {
     if (password === '' && email === '') {
       setEmailValid(true);
       setPasswordValid(true);
+      setEmailMent('Email cannot be empty.');
+      setPasswordMent('Password cannot be empty.');
     } else if (password === '') {
       setPasswordValid(true);
+      setPasswordMent('Password cannot be empty.');
     } else if (pattern.test(email)) {
-      if (!password === '') {
-        resetPassword();
-        resetEmail();
-
-        dispatch(loginAsync('/member/', { email, password }))
+      if (password !== '') {
+        dispatch(loginAsync({ url: '/loginToken', email, password }))
           .unwrap()
-          .then(() => {
-            navigate('/');
-          })
-          .catch();
+          .then(res => {
+            // 여기서 반환되는 값은 creatAsync에서 반환된 값을 확인 가능
+            // 해당 값을 통해 다른 로직 및 이동 동작 구현 가능
+            console.log('here is dispatch');
+            console.log(res);
+            if (res) {
+              resetPassword();
+              resetEmail();
+              navigate('/');
+            } else {
+              setEmailValid(true);
+              setPasswordValid(false);
+              setEmailMent('The email or password is incorrect.');
+            }
+          });
       } else {
+        setEmailValid(false);
         setPasswordValid(true);
       }
     } else if (!pattern.test(email)) {
       setEmailValid(true);
+      setPasswordValid(false);
+      setEmailMent('The email is not a valid email address.');
     }
   };
 
@@ -153,9 +177,7 @@ function LoginInputForm() {
             />
             <LoginWarning focus={emailValid} />
           </div>
-          <WarningMent focus={emailValid}>
-            The email is not a valid email address.
-          </WarningMent>
+          <WarningMent focus={emailValid}>{emailMent}</WarningMent>
         </div>
         <div className="password">
           <div className="password-label-box">
@@ -176,15 +198,10 @@ function LoginInputForm() {
             />
             <LoginWarning focus={passwordValid} />
           </div>
-          <WarningMent focus={passwordValid}>
-            Password cannot be empty.
-          </WarningMent>
+          <WarningMent focus={passwordValid}>{passwordMent}</WarningMent>
         </div>
         <div className="login">
           <button className="login-btn">Log in</button>
-          {/* <p className='warning-ment"'>
-            The email is not a valid email address.
-          </p> */}
         </div>
       </form>
     </Inputbox>

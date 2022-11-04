@@ -5,6 +5,15 @@ module.exports = {
     node: true,
   },
   extends: ['airbnb', 'eslint:recommended', 'plugin:prettier/recommended'],
+  parserOptions: {
+    ecmaVersion: 2022,
+    sourceType: 'module',
+  },
+  // overrides: [
+  //   {
+  //     files: ['*.js', '*.jsx'],
+  //   },
+  // ],
   rules: {
     'import/no-unresolved': 'off',
     'react/button-has-type': 'off',
