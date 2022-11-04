@@ -3,7 +3,7 @@ import { useState } from 'react';
 const useInput = initialState => {
   const [value, setValue] = useState(initialState);
   const [error, setError] = useState(false);
-
+  const [ment, setMent] = useState('');
   const changeValue = e => {
     setValue(e.target.value);
   };
@@ -15,7 +15,7 @@ const useInput = initialState => {
     setError(bool);
   };
 
-  return [value, changeValue, remove, error, changeError];
+  return [value, changeValue, remove, error, changeError, ment, setMent];
 };
 
 export default useInput;

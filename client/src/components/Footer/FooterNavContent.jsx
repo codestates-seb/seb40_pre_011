@@ -45,9 +45,9 @@ function FooterNavContent({ title, linkList }) {
         <Link to="/">{title}</Link>
       </h5>
       <ul className="footer__list">
-        {linkList.map(el => {
+        {linkList.map((el, idx) => {
           return (
-            <li>
+            <li key={idx}>
               <Link className="footer__link" to="/">
                 {el}
               </Link>
