@@ -23,18 +23,37 @@ const QuestionsUl = styled.ul`
   .views {
     color: var(--black-500);
   }
+  .tcu {
+    max-width: 600px;
+    width: 100%;
+  }
   .title {
     font-size: var(--font-17);
     color: var(--blue-600);
     text-decoration: none;
   }
+  .tagusername {
+    display: flex;
+    justify-content: space-between;
+  }
   .username {
     display: flex;
-    justify-content: end;
+    align-items: center;
     font-size: var(--font-12);
     color: var(--blue-600);
   }
-  .content {
+  .tag {
+    display: flex;
+    margin: 2px;
+    padding: 4.8px 6px;
+    border: none;
+    color: rgb(57, 115, 157);
+    background-color: rgb(225, 236, 244);
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: auto;
+  }
+  .toastui-editor-contents > p {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--font-13);

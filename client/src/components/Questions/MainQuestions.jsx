@@ -1,50 +1,52 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Viewer } from '@toast-ui/react-editor';
 import QuestionsUl from './QuestionsUl';
 import Pagination from './Pagination';
-import Questions from './MainDummy';
+import asynclistFetch from '../../action/asynclistFetch';
+import Skeletion from './Skeleton';
 
 function MainQuestions() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
+  const listdata = useSelector(state => state.content.data);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(asynclistFetch(1));
+  }, []);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexofFirstPost = indexOfLastPost - postsPerPage;
-  const currentQuestions = Questions.slice(indexofFirstPost, indexOfLastPost);
-
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber);
-  };
   return (
     <QuestionsUl>
-      {currentQuestions &&
-        currentQuestions.map(data => {
-          return (
-            <li>
-              <section className="vav">
-                <div className="votes">{data.votes} votes</div>
-                <div className="answer">{data.answers} answers</div>
-                <div className="views">{data.views} views</div>
-              </section>
-              <section className="tcu">
-                <Link to="/questionBoard/Detail" className="title">
-                  {data.title}
-                </Link>
-                <p className="content">{data.content}</p>
-                <footer>
-                  <div className="username">{data.username}</div>
-                </footer>
-              </section>
-            </li>
-          );
-        })}
-      <Pagination
-        postPerPage={postsPerPage}
-        totalPosts={Questions.length}
-        paginate={paginate}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      {listdata.length
+        ? listdata.map(data => {
+            // console.log(data.contentId);
+            return (
+              <li key={data.contentId}>
+                <section className="vav">
+                  <div className="votes">{data.rec} votes</div>
+                  <div className="answer">0 answers</div>
+                  <div className="views">0 views</div>
+                </section>
+                <section className="tcu">
+                  <Link
+                    to={`/questionBoard/${data.contentId}`}
+                    className="title"
+                  >
+                    {data.title}
+                  </Link>
+                  <Viewer className="contentview" initialValue={data.body} />
+                  <footer className="tagusername">
+                    <button className="tag">{data.tags}</button>
+                    <div className="username">아직구현이 안됨</div>
+                  </footer>
+                </section>
+              </li>
+            );
+          })
+        : Array(10)
+            .fill(0)
+            .map(() => <Skeletion />)}
+      <Pagination />
     </QuestionsUl>
   );
 }

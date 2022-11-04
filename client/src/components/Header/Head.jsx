@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Head = styled.header`
-  /* border-top: solid 3px var(--orange-400); */
+  border-top: solid 3px var(--orange-400);
   background-color: var(--powder-050);
   display: flex;
   align-items: center;
@@ -13,12 +13,16 @@ const Head = styled.header`
   position: fixed;
   top: 0px;
   z-index: 5;
+  .logo {
+    margin-right: 10px;
+  }
   .ham {
     display: none;
   }
   > .nav {
     color: var(--black-500);
     padding: 10px;
+    margin-right: 10px;
     font-size: var(--font-13);
     text-decoration: none;
     :hover {

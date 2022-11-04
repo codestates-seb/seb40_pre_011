@@ -6,11 +6,19 @@ const DetailMain = styled.main`
   margin: 0 auto;
   display: flex;
   > div {
-    width: 1100px;
+    max-width: 1100px;
+    width: 90%;
     padding: 24px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 1000px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 640px) {
+      width: 100%;
+    }
     .boardcontent {
+      width: 100%;
       display: flex;
       height: auto;
     }

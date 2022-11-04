@@ -10,8 +10,6 @@ const Head = styled.section`
   .buttons {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 16px;
-    /* border-bottom: 0.2px solid var(--black-100); */
     button {
       cursor: pointer;
       padding: 10px;
@@ -45,6 +43,10 @@ const Head = styled.section`
   }
   .title {
     font-size: 27px;
+  }
+  h4 {
+    display: flex;
+    align-items: center;
   }
 `;
 

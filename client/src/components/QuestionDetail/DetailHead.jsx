@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Questions from '../Questions/MainDummy';
 
 const Head = styled.header`
@@ -27,7 +28,6 @@ const Head = styled.header`
   .Detailheadamv {
     display: flex;
     padding-bottom: 8px;
-    margin-bottom: 16px;
     border-bottom: 1px solid var(--black-100);
   }
   .Detailheadamv > span {
@@ -45,10 +45,19 @@ const Head = styled.header`
 `;
 
 function DetailHead() {
+  const id = useParams(); // contentId
+  const listdata = useSelector(state => state.content.data);
+  const data = [];
+
+  for (let i = 0; i < listdata.length; i += 1) {
+    if (listdata[i].contentId === Number(id.id)) {
+      data.push(listdata[i]);
+    }
+  }
   return (
     <Head>
       <section className="Detailhead">
-        <p>{Questions[0].title}</p>
+        <p>{data[0].title}</p>
         <Link to="/questionBoard" className="askbutton">
           Ask Questions
         </Link>

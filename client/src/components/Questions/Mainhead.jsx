@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import Questions from './MainDummy';
+import { useSelector } from 'react-redux';
 import Head from './Head';
 
 export default function Mainhead() {
   const [select, setSelect] = useState(true);
 
+  const list = useSelector(state => state.content.pageInfo);
   const handleselect = () => {
     setSelect(!select);
   };
@@ -19,7 +20,7 @@ export default function Mainhead() {
         </Link>
       </div>
       <div className="buttons">
-        <h4>{Questions.length} Questions</h4>
+        <h4>{list.totalElements} Questions</h4>
         <div>
           <button
             className="Newest"
