@@ -6,7 +6,7 @@ StackOverFlow 사이트를 클론
 ## 기술스택
 <br>
 ###Front-end
-![image](https://user-images.githubusercontent.com/89185550/199908949-2fdf0b47-4147-4371-9445-2df5e839b249.png)
+![리액트](https://user-images.githubusercontent.com/89185550/199908949-2fdf0b47-4147-4371-9445-2df5e839b249.png)
 ![image](https://user-images.githubusercontent.com/89185550/199908971-c24d1f39-16e3-4758-97dd-81281fc1533c.png)
 ![image](https://user-images.githubusercontent.com/89185550/199908998-da11bbf1-4ae7-4a66-bade-bb65780038f1.png)
 
