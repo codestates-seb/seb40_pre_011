@@ -9,15 +9,11 @@ export const SignInput = styled.form`
   margin-right: auto;
   margin-left: auto;
 
-  p {
+  .passment {
     color: var(--black-500);
     font-size: var(--font-12);
     margin: 4px 0;
     margin-bottom: 15px;
-
-    li {
-      margin: 10px;
-    }
   }
 
   .displayName {
@@ -30,10 +26,16 @@ export const SignInput = styled.form`
 
   .inputbox {
     margin-top: 5px;
+    position: relative;
   }
 
-  p[class*='warning-ment'] {
+  .warning-ment.ok {
+    color: var(--red-500);
     display: none;
+  }
+
+  .warning-ment.error {
+    color: var(--red-500);
   }
 
   .checkform {
@@ -111,21 +113,6 @@ export const Inputlabel = styled.label`
   font-size: 15px;
   color: var(--black-900);
   font-weight: 600;
-`;
-
-export const InputText = styled.input`
-  width: 100%;
-  padding: 0.6em 0.7em;
-  border: 1px solid var(--black-200);
-  border-radius: 3px;
-  font-size: var(--font-13);
-  border-radius: 3px;
-  color: var(--black-900);
-
-  &:focus {
-    border: 1px solid var(--blue-400);
-    outline: 4px solid var(--blue-100);
-  }
 `;
 
 export const Robotlabel = styled.label`

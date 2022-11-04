@@ -40,9 +40,10 @@ const Head = styled.header`
     max-width: 800px;
     width: 50%;
     border: solid 1px var(--black-200);
-    background-color: #fff;
     margin-right: 8px;
     background-color: var(--white);
+    position: relative;
+
     img {
       cursor: text;
       margin-left: 5px;
@@ -57,6 +58,55 @@ const Head = styled.header`
       border-radius: 5px;
     }
   }
+
+  .focusInputbox {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    max-width: 800px;
+    width: 50%;
+    border: solid 1px #38a9f0;
+    margin-right: 8px;
+    background-color: var(--white);
+    position: relative;
+    box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+
+    img {
+      cursor: text;
+      margin-left: 5px;
+      width: 18px;
+      height: 18px;
+    }
+    input {
+      outline: none;
+      border: none;
+      width: 94%;
+      padding: 9px;
+      border-radius: 5px;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    content: '';
+    transform: rotate(45deg);
+    border-radius: 1.5px;
+    background: var(--white);
+    width: 12px;
+    height: 12px;
+    box-shadow: -1px -1px 1px 0 hsl(0deg 0% 0% / 12%);
+  }
+
+  .search.click {
+    display: block;
+  }
+
+  .search.no {
+    display: none;
+  }
+
   .Login {
     background-color: var(--blue-100);
     border: solid 1px var(--blue-500);

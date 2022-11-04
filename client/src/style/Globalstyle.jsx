@@ -50,6 +50,7 @@ const variables = createGlobalStyle`
     --orange-700: hsl(27, 90%, 39%);
     --orange-800: hsl(27, 87%, 35%);
     --orange-900: hsl(27, 80%, 30%);
+    --red-500: hsl(358,62%,52%);
     --blue-050: hsl(206, 100%, 97%);
     --blue-100: hsl(206, 96%, 90%);
     --blue-200: hsl(206, 93%, 83.5%);

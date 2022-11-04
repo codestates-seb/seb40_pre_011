@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Head from './Head';
 import search from '../../images/search.svg';
 import logo from '../../images/stackoverflow-official.svg';
 import hambugervar from '../../images/hambugervar.png';
+import SearchContent from './Search';
 import LoginLogo from '../Login/LoginLogo';
 import toolbarBurger from '../../images/toolbar_burger.svg';
 import toolbarInbox from '../../images/toolbar_inbox.svg';
@@ -16,12 +17,25 @@ import useLogin from '../../hook/useLogin';
 function Header() {
   const [focus, setFocus] = useState(false);
   const { isLogin } = useLogin();
+  const popRef = useRef(null);
+  const [searchPop, setSearchPop] = useState(false);
+
+  const closeHandler = ({ target }) => {
+    if (searchPop && !popRef.current.contains(target)) setSearchPop(false);
+  };
 
   useEffect(() => {
     if (!isLogin) {
       setFocus(false);
     }
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('click', closeHandler);
+    return () => {
+      window.removeEventListener('click', closeHandler);
+    };
+  });
 
   return (
     <Head>
@@ -35,6 +49,7 @@ function Header() {
           className="logo"
         />
       </Link>
+
       {isLogin ? (
         <Link to="/" className="nav Products">
           Products
@@ -53,9 +68,16 @@ function Header() {
         </>
       )}
 
-      <label htmlFor="ser" className="inputbox">
+      <label htmlFor="ser" className={searchPop ? 'focusInputbox' : 'inputbox'}>
         <img className="search" src={search} alt="search" />
-        <input id="ser" placeholder="Search.." />
+        <input
+          ref={popRef}
+          onClick={() => setSearchPop(true)}
+          id="ser"
+          placeholder="Search.."
+        />
+        {searchPop && <SearchContent />}
+        {searchPop && <div className="arrow" />}
       </label>
       {isLogin ? (
         <nav className="loginToolbar">

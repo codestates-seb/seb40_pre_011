@@ -1,52 +1,177 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
+import signupAsync from '../../action/signupAsync';
+import useInput from '../../hook/useInput';
+import { EmailRegex, PasswordRegex } from './SignRegex';
 import { TeamLink } from './SignLeft';
 import {
   SignInput,
   Inputlabel,
-  InputText,
   Robotlabel,
   RecapContainer,
 } from './SignupInputStyle';
-// import { Waring } from '../Login/LoginInputForm';
-// import warningIcon from '../../images/warning_icon.svg';
+import SignTextInput from '../Login/LoginInput';
+import LoginWarning, { WarningMent } from '../Login/LoginWarning';
 import recaptcha from '../../images/reCAPTCHA_logo.png';
 
 export default function SignupInput() {
+  const [displayName, setDisplayName] = useInput('');
+  const [
+    email,
+    setEmail,
+    resetEmail,
+    emailErr,
+    setEmailErr,
+    emailErrMent,
+    setEmailErrMent,
+  ] = useInput('');
+  const [
+    password,
+    setPassword,
+    resetPassword,
+    passwordErr,
+    setPasswordErr,
+    passwordErrMent,
+    setPasswordErrMent,
+  ] = useInput('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignupHandler = useCallback(
+    e => {
+      e.preventDefault();
+
+      if (
+        email.length !== 0 &&
+        password.length !== 0 &&
+        EmailRegex.test(email) === true &&
+        PasswordRegex.test(password) === true
+      ) {
+        dispatch(signupAsync({ url: '/signup', displayName, email, password }))
+          .unwrap()
+          .then(() => {
+            navigate('/login');
+          })
+          .catch();
+        // 중복될 때 login 페이지로 못 가게! then안에서 if문으로 처리(401일때 navigate 안되게...unwrap쓰고, catch 안됨)
+      }
+
+      const errMsg = [
+        `Email cannot be empty.`,
+        `${email} is not a valid email address.`,
+        `Password cannot be empty.`,
+        `Must contain at least ${
+          8 - password.length
+        } more characters, including at least 1 letter and 1 number.`,
+        `Must contain at least 1 letter and 1 number.`,
+      ];
+
+      if (password === '' && email === '') {
+        setEmailErr(true);
+        setPasswordErr(true);
+        setEmailErrMent(errMsg[0]);
+        setPasswordErrMent(errMsg[2]);
+        resetEmail();
+        resetPassword();
+      } else if (password === '') {
+        setPasswordErr(true);
+        setPasswordErrMent(errMsg[2]);
+        if (email !== '') {
+          if (!EmailRegex.test(email)) {
+            setEmailErr(true);
+            setEmailErrMent(errMsg[1]);
+          } else {
+            setEmailErr(false);
+          }
+        }
+      } else if (email === '') {
+        setEmailErr(true);
+        setEmailErrMent(errMsg[0]);
+        if (password !== '') {
+          if (!PasswordRegex.test(password)) {
+            setPasswordErr(true);
+            if (password.length < 8) {
+              setPasswordErrMent(errMsg[3]);
+            } else {
+              setPasswordErrMent(errMsg[4]);
+            }
+          } else {
+            setPasswordErr(false);
+          }
+        }
+      } else if (EmailRegex.test(email)) {
+        setEmailErr(false);
+        if (!PasswordRegex.test(password)) {
+          setPasswordErr(true);
+          if (password.length < 8) {
+            setPasswordErrMent(errMsg[3]);
+          } else {
+            setPasswordErrMent(errMsg[4]);
+          }
+        } else {
+          setPasswordErr(false);
+        }
+      } else if (!EmailRegex.test(email)) {
+        setEmailErr(true);
+        setEmailErrMent(errMsg[1]);
+        if (!PasswordRegex.test(password)) {
+          if (password.length < 8) {
+            setPasswordErr(true);
+            setPasswordErrMent(errMsg[3]);
+          } else {
+            setPasswordErr(true);
+            setPasswordErrMent(errMsg[4]);
+          }
+        } else {
+          setPasswordErr(false);
+        }
+      }
+    },
+    [displayName, email, password],
+  );
+
   return (
-    <SignInput>
+    <SignInput onSubmit={SignupHandler}>
       <div className="displayName">
         <Inputlabel>Display name</Inputlabel>
         <div className="inputbox">
-          <InputText id="name" type="text" />
+          <SignTextInput
+            id="displayName"
+            type="text"
+            value={displayName}
+            event={e => setDisplayName(e)}
+          />
         </div>
       </div>
       <div className="Email">
         <Inputlabel>Email</Inputlabel>
         <div className="inputbox">
-          <InputText id="email" type="email" />
-          {/* <Waring src={warningIcon} /> */}
+          <SignTextInput
+            id="email"
+            value={email}
+            event={e => setEmail(e)}
+            valid={emailErr}
+          />
+          <LoginWarning focus={emailErr} />
         </div>
-        <p className="warning-ment">Email cannot be empty.</p>
-        <p className="warning-ment">{}is not a valid email address.</p>
+        <WarningMent focus={emailErr}>{emailErrMent}</WarningMent>
       </div>
       <div className="Password">
         <Inputlabel>Password</Inputlabel>
         <div className="inputbox">
-          <InputText id="password" type="password" />
-          {/* <Waring src={warningIcon} /> */}
+          <SignTextInput
+            id="password"
+            type="password"
+            value={password}
+            event={e => setPassword(e)}
+            valid={passwordErr}
+          />
+          <LoginWarning focus={passwordErr} />
         </div>
-        <p className="warning-ment">Password cannot be empty.</p>
-        <p className="warning-ment">
-          Please add one of the following things to make your password stronger:
-          <li>number</li>
-        </p>
-        <p className="warning-ment">
-          Must contain at least {} more characters.
-        </p>
-        <p className="warning-ment">
-          Please add one of the following things to make your password stronger:
-          <li>letters</li>
-        </p>
-        <p>
+        <WarningMent focus={passwordErr}>{passwordErrMent}</WarningMent>
+        <p className="passment">
           Passwords must contain at least eight characters, including at least 1
           letter and 1 number.
         </p>
@@ -65,7 +190,6 @@ export default function SignupInput() {
             </div>
           </RecapContainer>
         </div>
-        <p className="warning-ment">CAPTCHA response required.</p>
       </div>
       <div className="checkbox">
         <input id="receive_check" type="checkbox" />

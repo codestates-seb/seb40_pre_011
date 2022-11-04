@@ -7,15 +7,13 @@ const TEST_URL =
 
 module.exports = app => {
   app.use(
-    createProxyMiddleware(['/member', '/content', '/user'], {
+    createProxyMiddleware(['/member', '/content', '/signup', '/user'], {
       target: TARGET_URL,
       changeOrigin: true,
       router: {
         '/content': TEST_URL,
         '/user': TARGET_URL,
-      },
-      pathRewrite: {
-        '^/loginToken': 'login',
+        '/signup': TARGET_URL,
       },
     }),
   );
