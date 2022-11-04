@@ -5,6 +5,8 @@ StackOverFlow 사이트를 클론!!!!
 
 ## 기술스택
 <br>
+###Front-end
+<img src="https://user-images.githubusercontent.com/52682603/138834243-fb74d81e-e90d-4c6a-8793-05df588f59ab.png" width="100px"/>
 
 ## 팀원소개
 팀명 : 🎃싱글톤벙글톤!!!\
