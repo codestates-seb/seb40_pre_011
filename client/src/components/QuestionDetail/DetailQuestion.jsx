@@ -61,7 +61,7 @@ function DetailQuestion() {
             <button onClick={() => handleFollow()}>
               {follow ? 'Following' : 'Follow'}
             </button>
-            {data[0].memberId === 1 ? (
+            {data[0].id === 1 ? (
               <>
                 <Link
                   to={`/questionBoard/${data[0].contentId}/update`}

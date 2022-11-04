@@ -10,7 +10,7 @@ const asynclistFetch = createAsyncThunk('list/data', page => {
 
 export const asynclistupFetch = createAsyncThunk('list/up', data => {
   axios.post(`/content?page=1&size=10`, {
-    memberId: 1,
+    id: 1,
     rec: 0,
     tags: data[2][0],
     title: data[0],
