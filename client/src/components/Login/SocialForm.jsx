@@ -56,15 +56,15 @@ function SocialForm() {
   return (
     <Social>
       <SocialButton className="google">
-        <LoginLogo logo={google} width="18" height="18" />
+        <LoginLogo logo={google} width="18px" height="18px" />
         <span> Log in with Google</span>
       </SocialButton>
       <SocialButton className="github">
-        <LoginLogo logo={github} width="18" height="18" />
+        <LoginLogo logo={github} width="18px" height="18px" />
         <span> Log in with Github</span>
       </SocialButton>
       <SocialButton className="facebook">
-        <LoginLogo logo={facebook} width="18" height="18" />
+        <LoginLogo logo={facebook} width="18px" height="18px" />
         <span> Log in with Facebook</span>
       </SocialButton>
     </Social>

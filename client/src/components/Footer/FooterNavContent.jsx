@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import uuid from 'react-uuid';
 
 const ContentContainer = styled.section`
   padding: 0px 12px 24px 0px;
@@ -47,7 +48,7 @@ function FooterNavContent({ title, linkList }) {
       <ul className="footer__list">
         {linkList.map(el => {
           return (
-            <li>
+            <li key={uuid()}>
               <Link className="footer__link" to="/">
                 {el}
               </Link>

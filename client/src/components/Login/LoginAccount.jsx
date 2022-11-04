@@ -45,7 +45,7 @@ function LoginAccount() {
       <div className="account-talent">
         <span>Are you an employer? </span>
         <Link to="/" className="talent-link">
-          Sign up on Talent <tab />
+          <span>Sign up on Talent </span>
           <LoginLogo
             name="talent-icon"
             logo={TalentLogo}

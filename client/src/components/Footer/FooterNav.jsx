@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import uuid from 'react-uuid';
 import FooterNavContent from './FooterNavContent';
-import FooterDummy from './FooterDummy';
+import FooterNavLink from './FooterNavLink';
 
 const NavContainer = styled.nav`
   display: flex;
@@ -16,9 +17,13 @@ const NavContainer = styled.nav`
 function FooterNav() {
   return (
     <NavContainer>
-      {FooterDummy.map(content => {
+      {FooterNavLink.map(content => {
         return (
-          <FooterNavContent title={content.title} linkList={content.list} />
+          <FooterNavContent
+            key={uuid()}
+            title={content.title}
+            linkList={content.list}
+          />
         );
       })}
     </NavContainer>

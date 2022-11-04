@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Viewer } from '@toast-ui/react-editor';
+import uuid from 'react-uuid';
 import QuestionsUl from './QuestionsUl';
 import Pagination from './Pagination';
 import asynclistFetch from '../../action/asynclistFetch';
@@ -45,7 +46,7 @@ function MainQuestions() {
           })
         : Array(10)
             .fill(0)
-            .map(() => <Skeletion />)}
+            .map(() => <Skeletion key={uuid()} />)}
       <Pagination />
     </QuestionsUl>
   );
