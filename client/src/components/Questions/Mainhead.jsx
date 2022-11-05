@@ -21,9 +21,7 @@ export default function Mainhead() {
       </div>
       <div className="buttons">
         <h4>
-          {list.totalElements.length
-            ? `${list.totalElements}Questions`
-            : '0 result'}
+          {list.totalElements ? `${list.totalElements}Questions` : '0 result'}
         </h4>
         <div>
           <button
