@@ -20,7 +20,11 @@ export default function Mainhead() {
         </Link>
       </div>
       <div className="buttons">
-        <h4>{list.totalElements} Questions</h4>
+        <h4>
+          {list.totalElements.length
+            ? `${list.totalElements}Questions`
+            : '0 result'}
+        </h4>
         <div>
           <button
             className="Newest"
