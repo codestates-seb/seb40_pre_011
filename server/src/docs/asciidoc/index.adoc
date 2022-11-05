@@ -1,0 +1,117 @@
+= 스택오버플로우 애플리케이션
+:sectnums:
+:toc: left
+:toclevels: 4
+:toc-title: Table of Contents
+:source-highlighter: prettify
+
+
+v1.0.0, 2022.10.31
+
+***
+== ContentController
+=== 게시글 등록
+.curl-request
+include::{snippets}/post-content/curl-request.adoc[]
+
+.http-request
+include::{snippets}/post-content/http-request.adoc[]
+
+.request-fields
+include::{snippets}/post-content/request-fields.adoc[]
+
+.http-response
+include::{snippets}/post-content/http-response.adoc[]
+
+.response-fields
+include::{snippets}/post-content/response-fields.adoc[]
+
+=== 게시글 불러오기
+.curl-request
+include::{snippets}/get-content/curl-request.adoc[]
+
+.http-request
+include::{snippets}/get-content/http-request.adoc[]
+
+.http-response
+include::{snippets}/get-content/http-response.adoc[]
+
+=== 게시글 수정
+.curl-request
+include::{snippets}/patch-content/curl-request.adoc[]
+
+.http-request
+include::{snippets}/patch-content/http-request.adoc[]
+
+.request-fields
+include::{snippets}/patch-content/request-fields.adoc[]
+
+.http-response
+include::{snippets}/patch-content/http-response.adoc[]
+
+.response-fields
+include::{snippets}/patch-content/response-fields.adoc[]
+
+=== 게시글 삭제
+.curl-request
+include::{snippets}/delete-content/curl-request.adoc[]
+
+.http-request
+include::{snippets}/delete-content/http-request.adoc[]
+
+.http-response
+include::{snippets}/delete-content/http-response.adoc[]
+
+== ReplyController
+=== 답변 등록
+.curl-request
+include::{snippets}/post-reply/curl-request.adoc[]
+
+.http-request
+include::{snippets}/post-reply/http-request.adoc[]
+
+.request-fields
+include::{snippets}/post-reply/request-fields.adoc[]
+
+.http-response
+include::{snippets}/post-reply/http-response.adoc[]
+
+.response-fields
+include::{snippets}/post-reply/response-fields.adoc[]
+
+=== 답변 불러오기
+.curl-request
+include::{snippets}/get-reply/curl-request.adoc[]
+
+.http-request
+include::{snippets}/get-reply/http-request.adoc[]
+
+.http-response
+include::{snippets}/get-reply/http-response.adoc[]
+
+
+=== 답변 수정
+.curl-request
+include::{snippets}/patch-reply/curl-request.adoc[]
+
+.http-request
+include::{snippets}/patch-reply/http-request.adoc[]
+
+.request-fields
+include::{snippets}/patch-reply/request-fields.adoc[]
+
+.http-response
+include::{snippets}/patch-reply/http-response.adoc[]
+
+.response-fields
+include::{snippets}/patch-reply/response-fields.adoc[]
+
+=== 답변 삭제
+.curl-request
+include::{snippets}/delete-reply/curl-request.adoc[]
+
+.http-request
+include::{snippets}/delete-reply/http-request.adoc[]
+
+.http-response
+include::{snippets}/delete-reply/http-response.adoc[]

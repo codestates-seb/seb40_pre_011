@@ -1,10 +1,14 @@
 package Singleton.server.reply.controller;
 
+import Singleton.server.content.entity.Content;
+import Singleton.server.reply.dto.ReplyPatchDto;
 import Singleton.server.reply.dto.ReplyPostDto;
 import Singleton.server.reply.entity.Reply;
 import Singleton.server.reply.mapper.ReplyMapper;
 import Singleton.server.reply.service.ReplyService;
+import Singleton.server.response.MultiResponseDto;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +18,7 @@ import Singleton.server.response.SingleResponseDto;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -37,46 +42,45 @@ public class ReplyController {
         Reply reply =
                 replyService.createReply(replyMapper.replyPostDtoToReply(replyPostDto));
         return new ResponseEntity<>(
-                new SingleResponseDto<>(replyMapper.replyToReplyResponseDto(reply)),
+                new SingleResponseDto<>(replyMapper.replyToReplyResponseDto(reply, null)),
                 HttpStatus.CREATED);
+    }
 
-//                                    @RequestParam("replyId") long replyId,
-//                                    @RequestParam("memberId") long memberId,
-//                                    @RequestParam("contentId") long contentId,
-//                                    @RequestParam("replyBody") boolean replyBody,
-//                                    @RequestParam("replySelect") boolean replySelect
-//                                    ){
-//
-//        Map<String, Object> body = new HashMap<>();
-//        body.put("replyId", replyId);
-//        body.put("memberId", memberId);
-//        body.put("contentId", contentId);
-//        body.put("replyBody", replyBody);
-//        body.put("replySelect", replySelect);
-//
-//      return new ResponseEntity<Map>(body, HttpStatus.CREATED);
+    //답글 불러오기
+    @GetMapping("/{reply-id}")
+    public ResponseEntity getReply(@PathVariable("reply-id") long replyId){
+        Reply reply = replyService.findReply(replyId);
+
+        return new ResponseEntity<>(
+                new SingleResponseDto<>(replyMapper.replyToReplyResponseDto(reply, null)),
+                HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity getReplys(@Positive @RequestParam int page,
+                                       @Positive @RequestParam int size) {
+        Page<Reply> pageReplys = replyService.findReplys(page - 1, size);
+        List<Reply> replys = pageReplys.getContent();
+
+        return new ResponseEntity<>(
+                new MultiResponseDto<>(replyMapper.replyToReplyResponseDtos(replys),
+                        pageReplys),
+                HttpStatus.OK);
     }
 
     //답글 수정
-    @PatchMapping("/reply/{reply-id}")
-    public ResponseEntity patchReply(@RequestParam("replyId") long replyId,
-                                    @RequestParam("memberId") long memberId,
-                                    @RequestParam("contentId") long contentId,
-                                    @RequestParam("replyBody") boolean replyBody,
-                                    @RequestParam("replySelect") boolean replySelect
-    ){
-        Map<String, Object> body = new HashMap<>();
-        body.put("replyId", replyId);
-        body.put("memberId", memberId);
-        body.put("contentId", contentId);
-        body.put("replyBody", replyBody);
-        body.put("replySelect", replySelect);
+    @PatchMapping("/{reply-id}")
+    public ResponseEntity patchReply(@PathVariable("reply-id") @Positive long replyId,
+                                     @Valid @RequestBody ReplyPatchDto replyPatchDto) {
+        replyPatchDto.setReplyId(replyId);
+        Reply reply = replyService.updateReply(replyMapper.replyPatchDtoToReply(replyPatchDto));
 
-        return new ResponseEntity<Map>(body, HttpStatus.OK);
+        return new ResponseEntity<>(
+                new SingleResponseDto<>(replyMapper.replyToReplyResponseDto(reply, null)), HttpStatus.OK);
     }
 
     //답글 삭제
-    @DeleteMapping
+    @DeleteMapping("/{reply-id}")
     public ResponseEntity deleteReply(@PathVariable("reply-id") @Positive long replyId) {
         replyService.deleteReply(replyId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);

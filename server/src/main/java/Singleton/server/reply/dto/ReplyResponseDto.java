@@ -4,11 +4,13 @@ import Singleton.server.member.entity.Member;
 import Singleton.server.content.entity.Content;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Builder
 @Getter
+@Setter
 public class ReplyResponseDto {
     private long memberId;
     private long contentId;
@@ -18,9 +20,9 @@ public class ReplyResponseDto {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
-    public void setMember(Member member) {
-        this.memberId = member.getMemberId();
-    }
+//    public void setMember(Member member) {
+//        this.memberId = member.getMemberId();
+//    }
     public void setContent(Content content) {
         this.contentId = content.getContentId();
     }
