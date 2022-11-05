@@ -19,7 +19,7 @@ function MainQuestions() {
   return (
     <QuestionsUl>
       {listdata.length
-        ? listdata.map(data => {
+        ? listdata?.map(data => {
             // console.log(data.contentId);
             return (
               <li key={data.contentId}>
