@@ -10,6 +10,7 @@ import Skeletion from './Skeleton';
 
 function MainQuestions() {
   const listdata = useSelector(state => state.content.data);
+  console.log(listdata);
   const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo(0, 0);
