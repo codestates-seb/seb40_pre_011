@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LoadingComponent from './components/Loading/Loading';
+import QuestionEdit from './pages/QuestionEdit/QuestionEdit';
 
 const Mainpage = React.lazy(() => import('./pages/Main/Mainpage'));
 const LoginPage = React.lazy(() => import('./pages/Login/LoginPage'));
@@ -20,7 +21,8 @@ function App() {
         <Route path="/logout" element={<LogoutPage />} />
         <Route path="/join" element={<Signup />} />
         <Route path="/questionBoard" element={<Questions />} />
-        <Route path="/questionBoard/:id/update" element={<QuestionDetail />} />
+        <Route path="/questionBoard/:id" element={<QuestionDetail />} />
+        <Route path="/questionBoard/:id/update" element={<QuestionEdit />} />
       </Routes>
     </Suspense>
   );
