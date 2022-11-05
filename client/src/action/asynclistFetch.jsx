@@ -29,7 +29,7 @@ export const asyncEditFetch = createAsyncThunk('list/update', data => {
     contentId: data[2],
     title: data[0],
     body: data[1],
-    tags: '태그',
+    tags: data[3],
   });
 });
 export default asynclistFetch;
