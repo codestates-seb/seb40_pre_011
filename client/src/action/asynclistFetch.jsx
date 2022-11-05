@@ -9,13 +9,21 @@ const asynclistFetch = createAsyncThunk('list/data', page => {
 });
 
 export const asynclistupFetch = createAsyncThunk('list/up', data => {
-  axios.post(`/content?page=1&size=10`, {
-    id: 1,
-    rec: 0,
-    tags: data[2][0],
-    title: data[0],
-    body: data[1],
-  });
+  axios.post(
+    `/content?page=1&size=10`,
+    JSON.stringify({
+      id: 1,
+      rec: 0,
+      tags: data[2][0],
+      title: data[0],
+      body: data[1],
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
 });
 
 export const asyncdeleteFetch = createAsyncThunk('list/delete', dataId => {
@@ -25,11 +33,19 @@ export const asyncdeleteFetch = createAsyncThunk('list/delete', dataId => {
 });
 
 export const asyncEditFetch = createAsyncThunk('list/update', data => {
-  axios.patch(`/content/${data[2]}`, {
-    contentId: data[2],
-    title: data[0],
-    body: data[1],
-    tags: data[3],
-  });
+  axios.patch(
+    `/content/${data[2]}`,
+    JSON.stringify({
+      contentId: data[2],
+      title: data[0],
+      body: data[1],
+      tags: data[3],
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
 });
 export default asynclistFetch;
