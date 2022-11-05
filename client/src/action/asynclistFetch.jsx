@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const asynclistFetch = createAsyncThunk('list/data', async page => {
   const data = await axios.get(`/content?page=${page}&size=10`).then(res => {
-    console.log(res);
+    console.log(res.data);
     return res.data;
   });
   return data;
