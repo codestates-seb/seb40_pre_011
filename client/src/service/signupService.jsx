@@ -14,7 +14,7 @@ const signup = (displayName, email, password) => {
     .then(data => {
       // eslint-disable-next-line no-alert
       alert('Successssssssssssssssssss');
-      console.log('성공!');
+      // console.log('성공!');
       return data;
     })
     .catch(error => {
@@ -22,7 +22,7 @@ const signup = (displayName, email, password) => {
         // eslint-disable-next-line no-alert
         alert('Errorrrrrrrrrrrrrrrrrrrrr');
       }
-      console.log(error);
+      // console.log(error);
       return error;
     });
 };

@@ -20,13 +20,13 @@ const signupSlice = createSlice({
       state.signupSuccess = action.payload.SignupSuccess;
       state.signupError = action.payload.SignupError;
       state.rejectReason = action.payload.RejectReason;
-      console.log('here is state!');
-      console.log(
-        state.loading,
-        state.signupSuccess,
-        state.signupError,
-        state.rejectReason,
-      );
+      // console.log('here is state!');
+      // console.log(
+      //   state.loading,
+      //   state.signupSuccess,
+      //   state.signupError,
+      //   state.rejectReason,
+      // );
     },
     [signupAsync.rejected]: (state, action) => {
       state.loading = action.payload.Loading;
