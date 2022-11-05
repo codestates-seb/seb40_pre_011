@@ -1,11 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import LoadingComponent from './components/Loading/Loading';
+import QuestionEdit from './pages/QuestionEdit/QuestionEdit';
+
+const Mainpage = React.lazy(() => import('./pages/Main/Mainpage'));
+const LoginPage = React.lazy(() => import('./pages/Login/LoginPage'));
+const LogoutPage = React.lazy(() => import('./pages/Logout/LogoutPage'));
+const Signup = React.lazy(() => import('./pages/Signup/Signup'));
+const Questions = React.lazy(() => import('./pages/Questions/Questions'));
+const QuestionDetail = React.lazy(() =>
+  import('./pages/QuestionDetail/QuestionDetail'),
+);
 
 function App() {
   return (
-    <div className="App">
-     dsadsa
-    </div>
+    <Suspense fallback={<LoadingComponent />}>
+      <Routes>
+        <Route path="/" element={<Mainpage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
+        <Route path="/join" element={<Signup />} />
+        <Route path="/questionBoard" element={<Questions />} />
+        <Route path="/questionBoard/:id" element={<QuestionDetail />} />
+        <Route path="/questionBoard/:id/update" element={<QuestionEdit />} />
+      </Routes>
+    </Suspense>
   );
 }
 
