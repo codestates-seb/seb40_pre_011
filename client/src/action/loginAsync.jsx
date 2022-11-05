@@ -7,22 +7,18 @@ export const loginAsync = createAsyncThunk(
   async ({ url, email, password }) => {
     const login = await loginService.login(url, email, password);
 
-    console.log('here is AsyncThunk');
     if (login.status === 200) {
       // 200 logic
-      console.log('200 logic');
       setRefreshToken(login.data.refresh);
       return login.data;
     }
     if (login.status === 201) {
-      console.log('201 logic');
-      console.log(login);
+      // console.log('201 logic');
     } else if (login.status === 401) {
-      console.log('401 logic');
+      // console.log('401 logic');
       return login.data.access;
     } else if (login.status === 403) {
-      console.log('403 logic');
-      console.log(login);
+      // console.log('403 logic');
     }
     return login.data;
   },
@@ -44,9 +40,8 @@ export const logoutAsync = createAsyncThunk('login/logoutAsync', async url => {
 
 export const refreshTokenAsync = createAsyncThunk(
   'login/refreshTokenAsync',
-  async ({ url, header }) => {
-    const refresh = await loginService.refresh(url, header);
-
-    console.log(refresh);
+  // { url, header } eslint except
+  async () => {
+    // const refresh = await loginService.refresh(url, header);
   },
 );

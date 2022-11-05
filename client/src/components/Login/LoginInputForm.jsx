@@ -138,8 +138,6 @@ function LoginInputForm() {
           .then(res => {
             // 여기서 반환되는 값은 creatAsync에서 반환된 값을 확인 가능
             // 해당 값을 통해 다른 로직 및 이동 동작 구현 가능
-            console.log('here is dispatch');
-            console.log(res);
             if (res) {
               resetPassword();
               resetEmail();

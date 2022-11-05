@@ -48,12 +48,10 @@ const loginSlice = createSlice({
     //   state.accessToken
     // },
     [refreshTokenAsync.fulfilled]: (state, action) => {
-      console.log(action);
       state.isLogin = action.payload && true;
       state.accessToken = action.payload;
     },
-    [refreshTokenAsync.rejected]: (state, action) => {
-      console.log(action);
+    [refreshTokenAsync.rejected]: state => {
       state.isLogin = false;
       state.accessToken = null;
     },
