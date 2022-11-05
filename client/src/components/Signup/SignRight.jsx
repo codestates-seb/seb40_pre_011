@@ -4,6 +4,7 @@ import SignAccount from './SignAccount';
 import SignupInput from './SignupInput';
 
 const SignRightform = styled.article`
+  height: 100vh;
   font-size: var(--font-15);
   width: 316px;
   margin: 24px 0;

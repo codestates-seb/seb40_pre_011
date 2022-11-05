@@ -15,6 +15,11 @@ const Search = styled.form`
     display: flex;
     color: var(--black-500);
     padding: 12px 12px 0px 12px;
+
+    @media screen and (max-width: 660px) {
+      flex-direction: column;
+      font-size: 9px;
+    }
   }
   .form {
     flex-basis: 50%;
@@ -36,6 +41,11 @@ const Search = styled.form`
     border-color: var(--black-075);
     border-top-style: solid;
     border-top-width: 1px;
+
+    @media screen and (max-width: 660px) {
+      flex-direction: column;
+      font-size: 9px;
+    }
   }
 
   button {
@@ -56,10 +66,6 @@ const Search = styled.form`
       box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
     }
   }
-
-  /* @media screen and (max-width: 660px) {
-    display: none;
-  } */
 `;
 
 export default Search;
