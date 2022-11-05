@@ -31,12 +31,13 @@ public class Reply {
     @Column(nullable = false, name = "LAST_MODIFIED_AT")
     private LocalDateTime modifiedAt = LocalDateTime.now();
 
-    @ManyToOne
-    @JoinColumn(name = "memberId")
-    private Member member;
-
+//    @ManyToOne
+//    @JoinColumn(name = "memberId")
+//    private Member member;
+//
     @ManyToOne
     @JoinColumn(name = "contentId")
     private Content content;
 
+//    public void addContent(Content content){this.content = content;}
 }

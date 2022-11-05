@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memberId;
+    private Long id;
 
     @Column
     private String name;
@@ -30,9 +30,11 @@ public class Member {
     @Column
     private String lastLogin;
 
+//    @OneToMany(mappedBy = "member")
     @Column
     private Long contentId;
 
+//    @OneToMany(mappedBy = "member")
     @Column
     private Long replyId;
 }

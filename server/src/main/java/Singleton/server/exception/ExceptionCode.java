@@ -5,9 +5,9 @@ import lombok.Getter;
 public enum ExceptionCode {
     MEMBER_NOT_FOUND(404, "Member not found"),
     MEMBER_EXISTS(409, "Member exists"),
-    COFFEE_NOT_FOUND(404, "Coffee not found"),
+    REPLY_NOT_FOUND(404, "Reply not found"),
     COFFEE_CODE_EXISTS(409, "Coffee Code exists"),
-    ORDER_NOT_FOUND(404, "Order not found"),
+    CONTENT_NOT_FOUND(404, "Content not found"),
     CANNOT_CHANGE_ORDER(403, "Order can not change"),
     NOT_IMPLEMENTATION(501, "Not Implementation"),
     INVALID_MEMBER_STATUS(400, "Invalid member status");
