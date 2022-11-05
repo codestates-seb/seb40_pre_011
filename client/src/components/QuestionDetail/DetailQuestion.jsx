@@ -82,7 +82,7 @@ function DetailQuestion() {
                 type="text"
                 ref={textInput}
               />
-              {console.log(nowURL)}
+              {/* {console.log(nowURL)} */}
               <button className="modalbutton" onClick={() => copy()}>
                 Copy now
               </button>
