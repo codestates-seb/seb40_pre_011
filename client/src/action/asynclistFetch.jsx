@@ -1,10 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const asynclistFetch = createAsyncThunk('list/data', page => {
-  const data = axios.get(`/content?page=${page}&size=10`).then(res => {
-    return res.data;
-  });
+const asynclistFetch = createAsyncThunk('list/data', async page => {
+  const data = await axios
+    .get(`/content?page=${page}&size=10`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(res => {
+      console.log(res.data);
+      return res.data;
+    });
   return data;
 });
 
