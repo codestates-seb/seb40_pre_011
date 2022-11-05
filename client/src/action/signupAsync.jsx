@@ -5,8 +5,6 @@ const signupAsync = createAsyncThunk(
   '/signup',
   async ({ displayName, email, password }) => {
     const signup = await signupService.signup(displayName, email, password);
-    console.log('here is signup');
-    console.log(signup);
 
     if (signup.status === 201) {
       return {

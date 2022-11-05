@@ -8,13 +8,9 @@ const login = (url, email, password) => {
       },
     })
     .then(data => {
-      console.log('login data');
-      console.log(data);
       return data;
     })
     .catch(err => {
-      console.log('here is Service Catch Error');
-      console.log(err);
       return err;
     });
 };
@@ -32,7 +28,7 @@ const logout = url => {
 
 const refresh = (url, header) => {
   return axios
-    .post(url, {}, header)
+    .post(url, header)
     .then(data => {
       return data;
     })

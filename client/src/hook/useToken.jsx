@@ -6,7 +6,8 @@ import { refreshTokenAsync } from '../action/loginAsync';
 import { loginActions } from '../reducer/loginSlice';
 
 const useToken = () => {
-  const { isLogin, accessToken } = useSelector(state => state.login);
+  // accessToken eslint except
+  const { isLogin } = useSelector(state => state.login);
   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,10 +16,14 @@ const useToken = () => {
     if (isLogin) {
       const refresh = getCookieToken();
       // access token 만료 로직 추가
-      console.log(accessToken);
+      const refreshHeader = {
+        headers: {
+          Authorization: `Bearer ${refresh}`,
+        },
+      };
 
       if (refresh) {
-        dispatch(refreshTokenAsync({ url: '/refresh', refresh }))
+        dispatch(refreshTokenAsync({ url: '/refresh', refreshHeader }))
           .unwrap()
           .then(res => {
             if (res) {
