@@ -24,6 +24,7 @@ function QuestionEdit() {
   const [body, setBody] = useState(false);
   const [titleValue, setTitleValue] = useState(listdata[0].title);
   const [bodyValue, setBodyValue] = useState(listdata[0].body);
+  const [tag, setTag] = useState(listdata[0].tags);
   const editorRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,8 +45,11 @@ function QuestionEdit() {
     }
     setBodyValue(data);
   };
+  const handleTag = e => {
+    setTag(e.target.value);
+  };
   const handleClick = () => {
-    const updata = [titleValue, bodyValue, Number(id.id)];
+    const updata = [titleValue, bodyValue, Number(id.id), tag];
     dispatch(asyncEditFetch(updata));
     navigate('/');
   };
@@ -104,7 +108,8 @@ function QuestionEdit() {
             <input
               id="taginput"
               placeholder="e.g. (angular sql-server string)"
-              value={listdata[0].tags}
+              value={tag || ''}
+              onChange={e => handleTag(e)}
             />
           </section>
           <div className="buttons">
