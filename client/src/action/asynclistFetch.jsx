@@ -6,6 +6,7 @@ const asynclistFetch = createAsyncThunk('list/data', async page => {
     .get(`/content?page=${page}&size=10`, {
       headers: {
         'Content-Type': 'application/json',
+        withCredential: true,
       },
     })
     .then(res => {
@@ -28,6 +29,7 @@ export const asynclistupFetch = createAsyncThunk('list/up', data => {
     {
       headers: {
         'Content-Type': 'application/json',
+        withCredential: true,
       },
     },
   );
@@ -51,6 +53,7 @@ export const asyncEditFetch = createAsyncThunk('list/update', data => {
     {
       headers: {
         'Content-Type': 'application/json',
+        withCredential: true,
       },
     },
   );
