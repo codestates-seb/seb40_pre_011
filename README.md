@@ -1,4 +1,8 @@
 # 🎃SEB40_PRE_011 StackOverFlow Clone🎃
+<br>
+배포링크 
+<a href="http://singgle.s3-website.ap-northeast-2.amazonaws.com/">배포링크</a>
+<br>
 StackOverFlow 사이트를 클론!!!!
 <br>
 <br>
