@@ -3,13 +3,15 @@ import axios from 'axios';
 
 const asynclistFetch = createAsyncThunk('list/data', async page => {
   const data = await axios
-    .get(`/content?page=${page}&size=10`, {
-      headers: {
-        'Content-Type': 'application/json',
+    .get(
+      `http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/content?page=${page}&size=10`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
-    })
+    )
     .then(res => {
-      console.log(res.data);
       return res.data;
     });
   return data;
@@ -17,7 +19,7 @@ const asynclistFetch = createAsyncThunk('list/data', async page => {
 
 export const asynclistupFetch = createAsyncThunk('list/up', data => {
   axios.post(
-    `/content?page=1&size=10`,
+    `http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/content?page=1&size=10`,
     JSON.stringify({
       id: 1,
       rec: 0,
@@ -34,14 +36,17 @@ export const asynclistupFetch = createAsyncThunk('list/up', data => {
 });
 
 export const asyncdeleteFetch = createAsyncThunk('list/delete', dataId => {
-  axios.delete(`/content/${dataId}`, {
-    contentId: dataId,
-  });
+  axios.delete(
+    `http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/content/${dataId}`,
+    {
+      contentId: dataId,
+    },
+  );
 });
 
 export const asyncEditFetch = createAsyncThunk('list/update', data => {
   axios.patch(
-    `/content/${data[2]}`,
+    `http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/content/${data[2]}`,
     JSON.stringify({
       contentId: data[2],
       title: data[0],
