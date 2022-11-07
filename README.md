@@ -4,7 +4,7 @@
 <br>
 <a href="http://singgle.s3-website.ap-northeast-2.amazonaws.com/">배포링크</a>
 <br>
-StackOverFlow 사이트를 클론!!!!
+<img src="https://user-images.githubusercontent.com/89185550/200227079-f24f005d-bd88-4c10-8a7a-b92bf2c00920.png" width="70%"/>
 <br>
 <br>
 
