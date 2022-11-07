@@ -3,7 +3,7 @@ import axios from 'axios';
 const signup = (displayName, email, password) => {
   return axios
     .post(
-      'http://localhost:3001/signup',
+      'http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/signup',
       { displayName, email, password },
       {
         headers: {

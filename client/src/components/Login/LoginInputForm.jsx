@@ -133,7 +133,13 @@ function LoginInputForm() {
       setPasswordMent('Password cannot be empty.');
     } else if (pattern.test(email)) {
       if (password !== '') {
-        dispatch(loginAsync({ url: '/loginToken', email, password }))
+        dispatch(
+          loginAsync({
+            url: 'http://ec2-3-36-121-198.ap-northeast-2.compute.amazonaws.com:8080/loginToken',
+            email,
+            password,
+          }),
+        )
           .unwrap()
           .then(res => {
             // 여기서 반환되는 값은 creatAsync에서 반환된 값을 확인 가능
