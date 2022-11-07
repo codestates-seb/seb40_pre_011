@@ -51,7 +51,7 @@
 ### 화면구성
 |회원가입|로그인|로그아웃|
 |------|---|---|
-|<img src="https://user-images.githubusercontent.com/89185550/200229274-90259786-f60d-491f-9d71-68051dc8cfcd.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200229188-5f5d9310-9b65-425c-ad2d-0bb90703d4bd.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200229319-7a1d5679-2489-4781-84d7-fec84fa2ec48.png" width="300px" height="300px">|
+|<img src="https://user-images.githubusercontent.com/89185550/200229274-90259786-f60d-491f-9d71-68051dc8cfcd.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200229188-5f5d9310-9b65-425c-ad2d-0bb90703d4bd.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200237852-7c32a96f-abb8-4dda-afda-c107f16f44c0.png" width="300px" height="300px">|
 |질문페이지|상세페이지|수정페이지|
 |<img src="https://user-images.githubusercontent.com/89185550/200229364-912bfbe2-feba-4a36-afd6-b94e6237656f.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200229405-ae0055da-351c-40ac-ad33-56e7c8546378.png" width="300px" height="300px">|<img src="https://user-images.githubusercontent.com/89185550/200229523-30e1ff6e-f801-4b36-8cd4-fcc6febb4bee.png" width="300px" height="300px">|
 |메인페이지|
