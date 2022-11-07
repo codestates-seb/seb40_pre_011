@@ -85,7 +85,12 @@
 ![사용자 요구사항 정의서](https://user-images.githubusercontent.com/89185550/197688362-438101bb-6d79-49cb-b59d-7e9a81a5dd2f.PNG)
 
 <br>
+
 ### 사용자 요구사항 정의서(수정후)
 <img width="1038" alt="스크린샷 2022-11-07 오후 2 47 41" src="https://user-images.githubusercontent.com/89185550/200235375-ac35715b-d217-40b1-ac04-8f555ed67954.png">
 
 <br>
+
+### 서비스
+<img width="657" alt="스크린샷 2022-11-07 오후 2 56 04" src="https://user-images.githubusercontent.com/89185550/200236396-d08a3da4-f7ab-43be-953a-9060b846ec8a.png">
+
